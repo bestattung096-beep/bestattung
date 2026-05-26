@@ -1,0 +1,41 @@
+.header { padding: var(--space-2xl) 0; }
+.header h1 { margin-bottom: var(--space-md); }
+.intro { color: var(--color-text-secondary); font-size: 1rem; max-width: 700px; margin-bottom: var(--space-lg); }
+.stats { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
+
+.section { padding: var(--space-2xl) 0; }
+.section h2 { margin-bottom: var(--space-lg); }
+.subTitle { margin: var(--space-xl) 0 var(--space-md); font-family: var(--font-sans); font-size: 1.1rem; }
+
+.cityGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--space-md); }
+.cityCard {
+  padding: var(--space-lg); border-radius: var(--radius-md);
+  background: var(--color-bg-card); border: 1px solid var(--color-border);
+  text-decoration: none; transition: all var(--transition-base); text-align: center;
+}
+.cityCard:hover { border-color: var(--color-accent); transform: translateY(-2px); }
+.cityCard h3 { font-family: var(--font-sans); font-size: 0.95rem; color: var(--color-text-primary); margin-bottom: 4px; }
+.cityCount { font-size: 0.75rem; color: var(--color-text-muted); }
+
+.bestatterList { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: var(--space-lg); }
+.bCard { text-decoration: none; display: flex; flex-direction: column; gap: var(--space-md); }
+.bHeader { display: flex; align-items: center; gap: var(--space-md); }
+.bInitial {
+  width: 44px; height: 44px; border-radius: var(--radius-md);
+  background: var(--gradient-accent); color: #fff; display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; font-weight: 700; flex-shrink: 0;
+}
+.bName { font-family: var(--font-sans); font-size: 0.95rem; font-weight: 600; color: var(--color-text-primary); }
+.bLoc { font-size: 0.78rem; color: var(--color-text-muted); }
+.bDesc { font-size: 0.85rem; color: var(--color-text-secondary); flex: 1; }
+.bServices { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+
+.tradCard { margin-bottom: var(--space-lg); }
+.tradCard p { color: var(--color-text-secondary); font-size: 0.95rem; }
+.friedhofList { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--space-sm); }
+.friedhofList li { padding: var(--space-sm) var(--space-md); background: var(--color-bg-card); border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--color-text-secondary); }
+.friedhofList li::before { content: '⛪ '; }
+
+@media (max-width: 768px) {
+  .bestatterList { grid-template-columns: 1fr; }
+}

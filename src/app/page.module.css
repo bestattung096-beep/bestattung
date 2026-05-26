@@ -1,0 +1,73 @@
+.hero {
+  position: relative; min-height: 70vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  padding: var(--space-3xl) var(--space-lg);
+  background: var(--gradient-hero); overflow: hidden;
+}
+.heroOverlay {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(124,140,245,0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 80%, rgba(212,168,83,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+.heroContent { position: relative; z-index: 1; max-width: 700px; }
+.heroBadge {
+  display: inline-block; padding: 0.4rem 1rem; border-radius: var(--radius-full);
+  background: var(--color-accent-glow); color: var(--color-accent);
+  font-size: 0.85rem; font-weight: 500; margin-bottom: var(--space-lg);
+  border: 1px solid rgba(124,140,245,0.2);
+}
+.heroTitle { margin-bottom: var(--space-lg); }
+.highlight { color: var(--color-accent); }
+.heroDesc { color: var(--color-text-secondary); font-size: 1.1rem; margin-bottom: var(--space-2xl); max-width: 550px; margin-left: auto; margin-right: auto; }
+
+.heroStats {
+  position: relative; z-index: 1; display: flex; gap: var(--space-2xl);
+  margin-top: var(--space-2xl); padding-top: var(--space-xl);
+  border-top: 1px solid var(--color-border);
+}
+.stat { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.statNum { font-size: 1.8rem; font-weight: 800; color: var(--color-accent); font-family: var(--font-sans); }
+.statLabel { font-size: 0.8rem; color: var(--color-text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* States Section */
+.statesSection { background: var(--color-bg-secondary); }
+.statesGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--space-md); }
+.stateCard {
+  display: flex; flex-direction: column; align-items: center; gap: var(--space-sm);
+  padding: var(--space-xl); border-radius: var(--radius-lg);
+  background: var(--gradient-card); border: 1px solid var(--color-border);
+  text-decoration: none; transition: all var(--transition-base); position: relative; overflow: hidden;
+}
+.stateCard:hover { border-color: var(--color-accent); transform: translateY(-4px); box-shadow: var(--shadow-glow); }
+.stateIcon { font-size: 2rem; margin-bottom: var(--space-xs); }
+.stateName { font-family: var(--font-sans); font-size: 1rem; font-weight: 600; color: var(--color-text-primary); }
+.stateCount { font-size: 0.8rem; color: var(--color-text-muted); }
+.stateArrow { font-size: 1.1rem; color: var(--color-accent); opacity: 0; transition: all var(--transition-base); transform: translateX(-5px); }
+.stateCard:hover .stateArrow { opacity: 1; transform: translateX(0); }
+
+/* Featured */
+.bestatterCard { text-decoration: none; display: flex; flex-direction: column; gap: var(--space-md); }
+.bestatterHeader { display: flex; align-items: center; gap: var(--space-md); }
+.bestatterInitial {
+  width: 48px; height: 48px; border-radius: var(--radius-md);
+  background: var(--gradient-accent); color: #fff; display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; font-weight: 700; flex-shrink: 0;
+}
+.bestatterName { font-family: var(--font-sans); font-size: 1rem; font-weight: 600; color: var(--color-text-primary); }
+.bestatterLocation { font-size: 0.8rem; color: var(--color-text-muted); }
+.bestatterDesc { font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.6; flex: 1; }
+.bestatterServices { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+.viewAll { text-align: center; margin-top: var(--space-2xl); }
+
+/* Info */
+.infoSection { background: var(--color-bg-primary); }
+.infoCard { display: flex; flex-direction: column; gap: var(--space-md); }
+.infoCard p { font-size: 0.9rem; color: var(--color-text-secondary); flex: 1; }
+.infoIcon { font-size: 2rem; }
+.infoLink { font-size: 0.9rem; font-weight: 500; color: var(--color-accent); }
+
+@media (max-width: 768px) {
+  .heroStats { gap: var(--space-xl); }
+  .statesGrid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+}
