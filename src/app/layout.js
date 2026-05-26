@@ -2,6 +2,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { organizationSchema } from '@/lib/seo';
+import Script from 'next/script';
 
 export const metadata = {
   metadataBase: new URL('https://bestattungs.at'),
@@ -32,6 +33,7 @@ export const metadata = {
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' } },
   alternates: { canonical: 'https://bestattungs.at' },
+  verification: { google: 'tbonGItdX7kVGC963AeDBo0nz_2BuBLOufU98_dxOHs' },
   other: { 'geo.region': 'AT', 'geo.placename': 'Österreich', 'content-language': 'de-AT' },
 };
 
@@ -67,6 +69,19 @@ export default function RootLayout({ children }) {
         <main id="main-content">{children}</main>
         <Footer />
       </body>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-307V9X36XX"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-307V9X36XX');
+        `}
+      </Script>
     </html>
   );
 }
