@@ -9,6 +9,11 @@
 .brandIcon { color: var(--color-accent); font-size: 1.4rem; }
 .brandName { font-size: 1.2rem; font-weight: 700; color: var(--color-text-primary); }
 .brandDesc { color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.6; }
+.social { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-lg); }
+.social a { width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; color: var(--color-text-secondary); border: 1px solid var(--color-border); border-radius: 50%; transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast); }
+.social a:hover { color: var(--color-accent); }
+.social a:hover { border-color: var(--color-accent); background: var(--color-bg-tertiary); }
+.social svg { width: 18px; height: 18px; fill: currentColor; }
 .colTitle { font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600; color: var(--color-text-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-md); }
 .list { list-style: none; display: flex; flex-direction: column; gap: var(--space-xs); }
 .list a { color: var(--color-text-secondary); font-size: 0.85rem; transition: color var(--transition-fast); }

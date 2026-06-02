@@ -1,3 +1,5 @@
+import { socialLinks } from '@/data/socialLinks';
+
 const BASE_URL = 'https://bestattungs.at';
 
 export function absoluteUrl(path = '/') {
@@ -12,6 +14,7 @@ export function organizationSchema() {
     name: 'bestattungs.at',
     url: BASE_URL,
     description: 'Verzeichnis fuer Bestattungsunternehmen in Oesterreich.',
+    sameAs: socialLinks.map(profile => profile.href),
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer support',
