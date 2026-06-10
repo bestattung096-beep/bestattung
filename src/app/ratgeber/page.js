@@ -12,6 +12,7 @@ const articles = [
   { slug: 'kosten', title: 'Bestattungskosten', icon: '💰', desc: 'Was kostet eine Bestattung? Durchschnittliche Kosten und Förderungen.' },
   { slug: 'vorsorge', title: 'Bestattungsvorsorge', icon: '🛡️', desc: 'Vorsorge treffen und Angehörige entlasten.' },
   { slug: 'bestattung-sarg', title: 'Sargbestattung', icon: '⚰️', desc: 'Alles über die traditionelle Sargbestattung in Österreich.' },
+  { slug: 'staedtische-bestattung', title: 'Städtische Bestattung vs. Private Bestatter', icon: '🏛️', desc: 'Unterschiede, freie Bestatterwahl und Kosten im Vergleich.' },
 ];
 
 export default function RatgeberPage() {

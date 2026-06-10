@@ -110,11 +110,22 @@ export default async function BestatterPage({ params }) {
                     <div key={i} className={styles.locCard}>
                       <h3>{l.city}</h3>
                       <p>{formatAddress(l)}</p>
+                      {l.phone && (
+                        <p style={{ marginTop: '0.25rem', fontSize: '0.85rem' }}>
+                          ☎ <a href={`tel:${l.phone}`}>{l.phone}</a>
+                        </p>
+                      )}
+                      {l.email && (
+                        <p style={{ marginTop: '0.25rem', fontSize: '0.85rem' }}>
+                          ✉ <a href={`mailto:${l.email}`}>{l.email}</a>
+                        </p>
+                      )}
                       <a
                         href={getMapsUrl(formatAddress(l))}
                         className={styles.mapLink}
                         target="_blank"
                         rel="noopener noreferrer"
+                        style={{ marginTop: '0.5rem', display: 'inline-block' }}
                       >
                         Route planen
                       </a>

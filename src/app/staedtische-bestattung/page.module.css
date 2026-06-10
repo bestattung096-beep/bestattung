@@ -1,0 +1,182 @@
+.header {
+  padding: var(--space-2xl) 0;
+  text-align: center;
+}
+
+.intro {
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  max-width: 750px;
+  margin: var(--space-md) auto var(--space-lg);
+  line-height: 1.7;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-xl);
+}
+
+.infoSection {
+  background: var(--gradient-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-3xl);
+  backdrop-filter: blur(10px);
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-xl);
+  margin-top: var(--space-lg);
+}
+
+.infoCol h3 {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+  color: var(--color-accent);
+}
+
+.infoCol p {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.stateSection {
+  margin-bottom: var(--space-3xl);
+}
+
+.stateTitle {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-lg);
+  border-bottom: 1.5px solid var(--color-border);
+  padding-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.bestatterGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--space-lg);
+}
+
+.bCard {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-base);
+}
+
+.bCard:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+}
+
+.bHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.bIcon {
+  width: 42px;
+  height: 42px;
+  background: var(--color-gold-soft);
+  color: var(--color-gold);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.bName {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 2px;
+}
+
+.bLocation {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.bDetails {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+  flex-grow: 1;
+}
+
+.bContact {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contactItem {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.contactItem:hover {
+  color: var(--color-accent);
+}
+
+.ctaBox {
+  margin-top: var(--space-3xl);
+  padding: var(--space-2xl) var(--space-xl);
+  background: var(--gradient-accent);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  color: #fff;
+}
+
+.ctaBox h2 {
+  color: #fff;
+  margin-bottom: var(--space-xs);
+}
+
+.ctaBox p {
+  font-size: 0.95rem;
+  margin-bottom: var(--space-lg);
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .bestatterGrid {
+    grid-template-columns: 1fr;
+  }
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+}

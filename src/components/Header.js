@@ -11,8 +11,9 @@ export default function Header() {
         </Link>
 
         <nav className={`${styles.nav} ${styles.desktopNav}`} aria-label="Hauptnavigation">
-          <Link href="/bundesland" className={styles.navLink}>Bundeslaender</Link>
+          <Link href="/bundesland" className={styles.navLink}>Bundesländer</Link>
           <Link href="/bestattung" className={styles.navLink}>Bestatter</Link>
+          <Link href="/staedtische-bestattung" className={styles.navLink}>Städtische Bestattung</Link>
           <Link href="/ratgeber" className={styles.navLink}>Ratgeber</Link>
           <Link href="/suche" className={styles.navLink}>Suche</Link>
         </nav>
@@ -24,8 +25,9 @@ export default function Header() {
             <span className={styles.burgerLine} />
           </summary>
           <nav className={styles.mobileNav} id="main-navigation" aria-label="Mobile Hauptnavigation">
-            <Link href="/bundesland" className={styles.navLink}>Bundeslaender</Link>
+            <Link href="/bundesland" className={styles.navLink}>Bundesländer</Link>
             <Link href="/bestattung" className={styles.navLink}>Bestatter</Link>
+            <Link href="/staedtische-bestattung" className={styles.navLink}>Städtische Bestattung</Link>
             <Link href="/ratgeber" className={styles.navLink}>Ratgeber</Link>
             <Link href="/suche" className={styles.navLink}>Suche</Link>
           </nav>

@@ -130,3 +130,7 @@
   .mobileMenu { display: block; }
   .navLink { font-size: 1.1rem; }
 }
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav { gap: var(--space-md); }
+}

@@ -1,0 +1,12 @@
+// BATCH 7: Remaining missing funeral brands/owners with verified contact details
+// DO NOT merge into bestatter.js without user approval
+export const missingBatch7 = [
+  { id: "hoerhan", slug: "hoerhan", name: "Bestattung Hörhan (Alexander Hörhan)", city: "Oberndorf an der Melk", citySlug: "oberndorf-melk", bundesland: "niederoesterreich", plz: "3281", street: "Hauptstraße 2", phone: "+43 664 4005050", email: "office@bestattung-hoerhan.at", locations: [{"city":"Oberndorf an der Melk","plz":"3281"},{"city":"Kirchberg an der Mank","plz":"3241","street":"Sonnfeldgasse 2"}] },
+  { id: "lueghammer", slug: "lueghammer", name: "Bestattung Lueghammer", city: "Walding", citySlug: "walding", bundesland: "oberoesterreich", plz: "4111", street: "Kreuzweg 6", phone: "+43 7234 83871", email: "lueghammer@aon.at", locations: [{"city":"Walding","plz":"4111"},{"city":"Ottensheim","plz":"4100","street":"Bahnhofstraße 33"}] },
+  { id: "allmer", slug: "allmer", name: "Bestattung Irmgard Allmer", city: "Gschaid bei Birkfeld", citySlug: "gschaid", bundesland: "steiermark", plz: "8190", street: "Gschaid 47", phone: "+43 3174 4720", email: "office@allmer-bestattung.at" },
+  { id: "strobl", slug: "strobl", name: "Bestattung Isolde Theresia Strobl", city: "Riedlingsdorf", citySlug: "riedlingsdorf", bundesland: "burgenland", plz: "7422", street: "Untere Hauptstraße 39", phone: "+43 3357 42377", email: "isolde.strobl@gmx.at" },
+  { id: "schoell", slug: "schoell", name: "Bestattung Josef Franz Schöll", city: "Marz", citySlug: "marz", bundesland: "burgenland", plz: "7221", street: "Schulstraße 21", phone: "+43 2626 63959", email: "josef.schoell@aon.at" },
+  { id: "wurz", slug: "wurz", name: "Wurz KG (Bestattung & Tischlerei)", city: "Kaltenberg", citySlug: "kaltenberg", bundesland: "oberoesterreich", plz: "4273", street: "Kaltenberg 19", phone: "+43 7956 71223", email: "office@wurz-bestattung.at" },
+  { id: "aktas", slug: "aktas", name: "Yasin Aktaş (Bestattung)", city: "Wien", citySlug: "wien", bundesland: "wien", plz: "1100", street: "Laaer-Berg-Straße 47b/56", phone: "+43 1 7895083", email: "bestattung@etuekoglu.at", note: "Associated with Kadir Etükoğlu / Turkish-Islamic burials" },
+  { id: "zsu-trade", slug: "zsu-trade", name: "ZSU Trade GmbH (DITIB Bestattungshilfe)", city: "Wien", citySlug: "wien", bundesland: "wien", plz: "1100", street: "Laaer-Berg-Straße 47b/56", phone: "+43 1 7895083", email: "bestattung@etuekoglu.at", note: "Turkish-Islamic overseas transfers / DITIB Social Support Centre" },
+];

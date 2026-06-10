@@ -17,6 +17,8 @@ export default function sitemap() {
     { url: `${BASE_URL}/ratgeber/kosten`, lastModified: LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/ratgeber/vorsorge`, lastModified: LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/ratgeber/bestattung-sarg`, lastModified: LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/ratgeber/staedtische-bestattung`, lastModified: LAST_MODIFIED, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/staedtische-bestattung`, lastModified: LAST_MODIFIED, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/impressum`, lastModified: LAST_MODIFIED, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE_URL}/datenschutz`, lastModified: LAST_MODIFIED, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE_URL}/privacy-policy`, lastModified: LAST_MODIFIED, changeFrequency: 'yearly', priority: 0.3 },

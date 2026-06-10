@@ -71,6 +71,7 @@ export default function Footer() {
               <li><Link href="/ratgeber/kosten">Kosten</Link></li>
               <li><Link href="/ratgeber/vorsorge">Vorsorge</Link></li>
               <li><Link href="/suche">Bestatter suchen</Link></li>
+              <li><Link href="/staedtische-bestattung">Städtische Bestattungen</Link></li>
             </ul>
           </div>
           <div className={styles.col}>
