@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "indexing:status": "node scripts/google-indexing.js status",
+    "indexing:submit": "node scripts/google-indexing.js submit",
+    "indexing:submit-all": "node scripts/google-indexing.js submit-all"
   },
   "dependencies": {
     "next": "16.2.6",
