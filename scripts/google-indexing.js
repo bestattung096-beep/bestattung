@@ -158,16 +158,25 @@ function getAllSiteUrls() {
     `${BASE_URL}/ratgeber/staedtische-bestattung`,
   ];
 
+  // Helper to load ES module files as plain data
+  function loadEsModuleData(filename, variableName) {
+    const filePath = path.join(__dirname, '..', 'src', 'data', filename);
+    const content = fs.readFileSync(filePath, 'utf8');
+    const sanitized = content.replace(/export const/g, 'const');
+    const fn = new Function(`${sanitized}; return ${variableName};`);
+    return fn();
+  }
+
   // Dynamic Bundesländer
-  const { bundeslaender } = require('../src/data/bundeslaender.js');
+  const bundeslaender = loadEsModuleData('bundeslaender.js', 'bundeslaender');
   bundeslaender.forEach(bl => urls.push(`${BASE_URL}/bundesland/${bl.slug}`));
 
   // Dynamic Cities
-  const { cities } = require('../src/data/cities.js');
+  const cities = loadEsModuleData('cities.js', 'cities');
   cities.forEach(c => urls.push(`${BASE_URL}/bundesland/${c.bundesland}/${c.slug}`));
 
   // Dynamic Bestatter
-  const { bestatter } = require('../src/data/bestatter.js');
+  const bestatter = loadEsModuleData('bestatter.js', 'bestatter');
   bestatter.forEach(b => urls.push(`${BASE_URL}/bestattung/${b.slug}`));
 
   return urls;

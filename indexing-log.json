@@ -1,0 +1,302 @@
+{
+  "https://bestattungs.at": {
+    "submittedAt": "2026-06-15T15:47:52.183Z"
+  },
+  "https://bestattungs.at/bundesland": {
+    "submittedAt": "2026-06-15T15:47:52.850Z"
+  },
+  "https://bestattungs.at/bestattung": {
+    "submittedAt": "2026-06-15T15:47:53.467Z"
+  },
+  "https://bestattungs.at/suche": {
+    "submittedAt": "2026-06-15T15:47:54.052Z"
+  },
+  "https://bestattungs.at/ratgeber": {
+    "submittedAt": "2026-06-15T15:47:54.758Z"
+  },
+  "https://bestattungs.at/staedtische-bestattung": {
+    "submittedAt": "2026-06-15T15:47:55.215Z"
+  },
+  "https://bestattungs.at/ratgeber/was-tun-im-todesfall": {
+    "submittedAt": "2026-06-15T15:47:55.907Z"
+  },
+  "https://bestattungs.at/ratgeber/bestattungsarten": {
+    "submittedAt": "2026-06-15T15:47:56.548Z"
+  },
+  "https://bestattungs.at/ratgeber/kosten": {
+    "submittedAt": "2026-06-15T15:47:57.175Z"
+  },
+  "https://bestattungs.at/ratgeber/vorsorge": {
+    "submittedAt": "2026-06-15T15:47:57.737Z"
+  },
+  "https://bestattungs.at/ratgeber/bestattung-sarg": {
+    "submittedAt": "2026-06-15T15:47:58.345Z"
+  },
+  "https://bestattungs.at/ratgeber/staedtische-bestattung": {
+    "submittedAt": "2026-06-15T15:47:58.903Z"
+  },
+  "https://bestattungs.at/bundesland/wien": {
+    "submittedAt": "2026-06-15T15:47:59.455Z"
+  },
+  "https://bestattungs.at/bundesland/niederoesterreich": {
+    "submittedAt": "2026-06-15T15:48:00.031Z"
+  },
+  "https://bestattungs.at/bundesland/oberoesterreich": {
+    "submittedAt": "2026-06-15T15:48:00.523Z"
+  },
+  "https://bestattungs.at/bundesland/salzburg": {
+    "submittedAt": "2026-06-15T15:48:01.108Z"
+  },
+  "https://bestattungs.at/bundesland/steiermark": {
+    "submittedAt": "2026-06-15T15:48:01.687Z"
+  },
+  "https://bestattungs.at/bundesland/kaernten": {
+    "submittedAt": "2026-06-15T15:48:02.275Z"
+  },
+  "https://bestattungs.at/bundesland/tirol": {
+    "submittedAt": "2026-06-15T15:48:02.846Z"
+  },
+  "https://bestattungs.at/bundesland/vorarlberg": {
+    "submittedAt": "2026-06-15T15:48:03.427Z"
+  },
+  "https://bestattungs.at/bundesland/burgenland": {
+    "submittedAt": "2026-06-15T15:48:04.006Z"
+  },
+  "https://bestattungs.at/bundesland/wien/wien": {
+    "submittedAt": "2026-06-15T15:48:04.632Z"
+  },
+  "https://bestattungs.at/bundesland/steiermark/graz": {
+    "submittedAt": "2026-06-15T15:48:05.265Z"
+  },
+  "https://bestattungs.at/bundesland/oberoesterreich/linz": {
+    "submittedAt": "2026-06-15T15:48:05.838Z"
+  },
+  "https://bestattungs.at/bundesland/salzburg/salzburg": {
+    "submittedAt": "2026-06-15T15:48:06.451Z"
+  },
+  "https://bestattungs.at/bundesland/kaernten/klagenfurt": {
+    "submittedAt": "2026-06-15T15:48:07.024Z"
+  },
+  "https://bestattungs.at/bundesland/kaernten/villach": {
+    "submittedAt": "2026-06-15T15:48:07.589Z"
+  },
+  "https://bestattungs.at/bundesland/oberoesterreich/wels": {
+    "submittedAt": "2026-06-15T15:48:08.152Z"
+  },
+  "https://bestattungs.at/bundesland/oberoesterreich/steyr": {
+    "submittedAt": "2026-06-15T15:48:08.777Z"
+  },
+  "https://bestattungs.at/bundesland/niederoesterreich/amstetten": {
+    "submittedAt": "2026-06-15T15:48:09.353Z"
+  },
+  "https://bestattungs.at/bundesland/niederoesterreich/st-poelten": {
+    "submittedAt": "2026-06-15T15:48:09.931Z"
+  },
+  "https://bestattungs.at/bundesland/niederoesterreich/wiener-neustadt": {
+    "submittedAt": "2026-06-15T15:48:10.495Z"
+  },
+  "https://bestattungs.at/bundesland/kaernten/wolfsberg": {
+    "submittedAt": "2026-06-15T15:48:11.088Z"
+  },
+  "https://bestattungs.at/bundesland/steiermark/kapfenberg": {
+    "submittedAt": "2026-06-15T15:48:11.637Z"
+  },
+  "https://bestattungs.at/bundesland/steiermark/leoben": {
+    "submittedAt": "2026-06-15T15:48:12.248Z"
+  },
+  "https://bestattungs.at/bundesland/steiermark/weiz": {
+    "submittedAt": "2026-06-15T15:48:12.804Z"
+  },
+  "https://bestattungs.at/bundesland/steiermark/hartberg": {
+    "submittedAt": "2026-06-15T15:48:13.344Z"
+  },
+  "https://bestattungs.at/bundesland/steiermark/liezen": {
+    "submittedAt": "2026-06-15T15:48:13.898Z"
+  },
+  "https://bestattungs.at/bundesland/oberoesterreich/gmunden": {
+    "submittedAt": "2026-06-15T15:48:14.452Z"
+  },
+  "https://bestattungs.at/bundesland/oberoesterreich/braunau": {
+    "submittedAt": "2026-06-15T15:48:15.016Z"
+  },
+  "https://bestattungs.at/bundesland/oberoesterreich/eferding": {
+    "submittedAt": "2026-06-15T15:48:15.591Z"
+  },
+  "https://bestattungs.at/bundesland/oberoesterreich/perg": {
+    "submittedAt": "2026-06-15T15:48:16.152Z"
+  },
+  "https://bestattungs.at/bundesland/oberoesterreich/schaerding": {
+    "submittedAt": "2026-06-15T15:48:16.632Z"
+  },
+  "https://bestattungs.at/bundesland/niederoesterreich/neunkirchen": {
+    "submittedAt": "2026-06-15T15:48:17.202Z"
+  },
+  "https://bestattungs.at/bundesland/niederoesterreich/zwettl": {
+    "submittedAt": "2026-06-15T15:48:17.769Z"
+  },
+  "https://bestattungs.at/bundesland/niederoesterreich/zistersdorf": {
+    "submittedAt": "2026-06-15T15:48:18.329Z"
+  },
+  "https://bestattungs.at/bundesland/burgenland/pinkafeld": {
+    "submittedAt": "2026-06-15T15:48:18.882Z"
+  },
+  "https://bestattungs.at/bundesland/steiermark/murau": {
+    "submittedAt": "2026-06-15T15:48:19.469Z"
+  },
+  "https://bestattungs.at/bundesland/steiermark/voitsberg": {
+    "submittedAt": "2026-06-15T15:48:20.010Z"
+  },
+  "https://bestattungs.at/bestattung/adelberger": {
+    "submittedAt": "2026-06-15T15:48:20.563Z"
+  },
+  "https://bestattungs.at/bestattung/ahammer": {
+    "submittedAt": "2026-06-15T15:48:21.122Z"
+  },
+  "https://bestattungs.at/bestattung/ahimmel": {
+    "submittedAt": "2026-06-15T15:48:21.620Z"
+  },
+  "https://bestattungs.at/bestattung/aigner": {
+    "submittedAt": "2026-06-15T15:48:22.169Z"
+  },
+  "https://bestattungs.at/bestattung/aktas": {
+    "submittedAt": "2026-06-15T15:48:22.786Z"
+  },
+  "https://bestattungs.at/bestattung/alkin": {
+    "submittedAt": "2026-06-15T15:48:23.330Z"
+  },
+  "https://bestattungs.at/bestattung/allmer": {
+    "submittedAt": "2026-06-15T15:48:23.899Z"
+  },
+  "https://bestattungs.at/bestattung/altbart": {
+    "submittedAt": "2026-06-15T15:48:24.493Z"
+  },
+  "https://bestattungs.at/bestattung/ammann": {
+    "submittedAt": "2026-06-15T15:48:24.943Z"
+  },
+  "https://bestattungs.at/bestattung/anlanger": {
+    "submittedAt": "2026-06-15T15:48:25.505Z"
+  },
+  "https://bestattungs.at/bestattung/aumann": {
+    "submittedAt": "2026-06-15T15:48:26.081Z"
+  },
+  "https://bestattungs.at/bestattung/aura-knittelfeld": {
+    "submittedAt": "2026-06-15T15:48:26.654Z"
+  },
+  "https://bestattungs.at/bestattung/baar": {
+    "submittedAt": "2026-06-15T15:48:27.225Z"
+  },
+  "https://bestattungs.at/bestattung/bachler": {
+    "submittedAt": "2026-06-15T15:48:27.702Z"
+  },
+  "https://bestattungs.at/bestattung/bartl": {
+    "submittedAt": "2026-06-15T15:48:28.298Z"
+  },
+  "https://bestattungs.at/bestattung/baumann": {
+    "submittedAt": "2026-06-15T15:48:28.881Z"
+  },
+  "https://bestattungs.at/bestattung/baumgartner": {
+    "submittedAt": "2026-06-15T15:48:29.437Z"
+  },
+  "https://bestattungs.at/bestattung/beer": {
+    "submittedAt": "2026-06-15T15:48:29.980Z"
+  },
+  "https://bestattungs.at/bestattung/benu": {
+    "submittedAt": "2026-06-15T15:48:30.537Z"
+  },
+  "https://bestattungs.at/bestattung/bergmeister": {
+    "submittedAt": "2026-06-15T15:48:31.078Z"
+  },
+  "https://bestattungs.at/bestattung/bestattung-bischofshofen": {
+    "submittedAt": "2026-06-15T15:48:31.633Z"
+  },
+  "https://bestattungs.at/bestattung/bestattung-graz": {
+    "submittedAt": "2026-06-15T15:48:32.185Z"
+  },
+  "https://bestattungs.at/bestattung/bestattung-spittal": {
+    "submittedAt": "2026-06-15T15:48:32.662Z"
+  },
+  "https://bestattungs.at/bestattung/bestattung-wels": {
+    "submittedAt": "2026-06-15T15:48:33.209Z"
+  },
+  "https://bestattungs.at/bestattung/bestattung-wien": {
+    "submittedAt": "2026-06-15T15:48:33.763Z"
+  },
+  "https://bestattungs.at/bestattung/beyer": {
+    "submittedAt": "2026-06-15T15:48:34.316Z"
+  },
+  "https://bestattungs.at/bestattung/biack": {
+    "submittedAt": "2026-06-15T15:48:34.791Z"
+  },
+  "https://bestattungs.at/bestattung/biebl": {
+    "submittedAt": "2026-06-15T15:48:35.363Z"
+  },
+  "https://bestattungs.at/bestattung/birbamer": {
+    "submittedAt": "2026-06-15T15:48:35.928Z"
+  },
+  "https://bestattungs.at/bestattung/bkg-kaernten": {
+    "submittedAt": "2026-06-15T15:48:36.498Z"
+  },
+  "https://bestattungs.at/bestattung/boeglberger": {
+    "submittedAt": "2026-06-15T15:48:37.076Z"
+  },
+  "https://bestattungs.at/bestattung/brixner": {
+    "submittedAt": "2026-06-15T15:48:37.663Z"
+  },
+  "https://bestattungs.at/bestattung/bruckner": {
+    "submittedAt": "2026-06-15T15:48:38.235Z"
+  },
+  "https://bestattungs.at/bestattung/brunflicker": {
+    "submittedAt": "2026-06-15T15:48:38.820Z"
+  },
+  "https://bestattungs.at/bestattung/brunhuber": {
+    "submittedAt": "2026-06-15T15:48:39.369Z"
+  },
+  "https://bestattungs.at/bestattung/butter": {
+    "submittedAt": "2026-06-15T15:48:39.937Z"
+  },
+  "https://bestattungs.at/bestattung/c-mueller": {
+    "submittedAt": "2026-06-15T15:48:40.509Z"
+  },
+  "https://bestattungs.at/bestattung/cepko": {
+    "submittedAt": "2026-06-15T15:48:41.082Z"
+  },
+  "https://bestattungs.at/bestattung/concordia": {
+    "submittedAt": "2026-06-15T15:48:41.662Z"
+  },
+  "https://bestattungs.at/bestattung/cubus": {
+    "submittedAt": "2026-06-15T15:48:42.213Z"
+  },
+  "https://bestattungs.at/bestattung/dellemann": {
+    "submittedAt": "2026-06-15T15:48:42.790Z"
+  },
+  "https://bestattungs.at/bestattung/der-engel": {
+    "submittedAt": "2026-06-15T15:48:43.296Z"
+  },
+  "https://bestattungs.at/bestattung/dewanger": {
+    "submittedAt": "2026-06-15T15:48:43.876Z"
+  },
+  "https://bestattungs.at/bestattung/dirnberger": {
+    "submittedAt": "2026-06-15T15:48:44.454Z"
+  },
+  "https://bestattungs.at/bestattung/dobretsberger": {
+    "submittedAt": "2026-06-15T15:48:45.015Z"
+  },
+  "https://bestattungs.at/bestattung/dove": {
+    "submittedAt": "2026-06-15T15:48:45.599Z"
+  },
+  "https://bestattungs.at/bestattung/drabek": {
+    "submittedAt": "2026-06-15T15:48:46.194Z"
+  },
+  "https://bestattungs.at/bestattung/dussmann": {
+    "submittedAt": "2026-06-15T15:48:46.803Z"
+  },
+  "https://bestattungs.at/bestattung/ebenbichler": {
+    "submittedAt": "2026-06-15T15:48:47.360Z"
+  },
+  "https://bestattungs.at/bestattung/ebner-hohn": {
+    "submittedAt": "2026-06-15T15:48:47.900Z"
+  },
+  "https://bestattungs.at/bestattung/ecker": {
+    "submittedAt": "2026-06-15T15:48:48.453Z"
+  }
+}
