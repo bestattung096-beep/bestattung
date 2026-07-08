@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test": "node --test test/",
     "indexing:status": "node scripts/google-indexing.js status",
     "indexing:submit": "node scripts/google-indexing.js submit",
     "indexing:submit-all": "node scripts/google-indexing.js submit-all"

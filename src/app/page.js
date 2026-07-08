@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { bundeslaender } from '@/data/bundeslaender';
-import { bestatter } from '@/data/bestatter';
 import SearchBox from '@/components/SearchBox';
+import { getValidBestatter, getTopCitiesByValidListings } from '@/lib/records';
 import styles from './page.module.css';
 
 export default function Home() {
+  const bestatter = getValidBestatter();
   const totalBestatter = bestatter.length;
+  const topCities = getTopCitiesByValidListings(15);
 
   return (
     <>
@@ -61,6 +63,27 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Cities Section */}
+      {topCities.length > 0 && (
+        <section className={`section ${styles.statesSection}`} id="cities-section">
+          <div className="container">
+            <div className="section-header">
+              <h2>Bestatter in Ihrer Stadt</h2>
+              <p>Die Städte mit den meisten gelisteten Bestattungsunternehmen in Österreich.</p>
+            </div>
+            <div className={styles.statesGrid}>
+              {topCities.map(({ city, count }) => (
+                <Link href={`/bundesland/${city.bundesland}/${city.slug}`} key={city.slug} className={styles.stateCard} id={`city-${city.slug}`}>
+                  <h3 className={styles.stateName}>{city.name}</h3>
+                  <span className={styles.stateCount}>{count} Bestatter</span>
+                  <span className={styles.stateArrow}>→</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Featured Bestatter */}
       <section className={`section ${styles.featuredSection}`} id="featured-section">

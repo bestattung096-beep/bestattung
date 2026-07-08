@@ -1,22 +1,33 @@
 import Link from 'next/link';
-import { articleSchema } from '@/lib/seo';
+import { articleSchema, breadcrumbSchema } from '@/lib/seo';
+import { guides, formatGuideDate } from '@/data/guides';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'Bestattungskosten in Österreich – Was kostet eine Bestattung?',
   description: 'Was kostet eine Bestattung in Österreich? Durchschnittliche Kosten für Erdbestattung, Feuerbestattung, Grabgebühren, Förderungen und Spartipps.',
   alternates: { canonical: 'https://bestattungs.at/ratgeber/kosten' },
+  openGraph: { title: 'Bestattungskosten in Österreich – Was kostet eine Bestattung?', description: 'Was kostet eine Bestattung in Österreich? Durchschnittliche Kosten für Erdbestattung, Feuerbestattung, Grabgebühren, Förderungen und Spartipps.', url: 'https://bestattungs.at/ratgeber/kosten' },
 };
 
 export default function KostenPage() {
+  const lastUpdated = guides['kosten'].lastUpdated;
   const article = articleSchema({
     title: 'Bestattungskosten in Oesterreich - Was kostet eine Bestattung?',
     description: metadata.description,
     path: '/ratgeber/kosten',
+    dateModified: lastUpdated,
   });
+
+  const breadcrumb = breadcrumbSchema([
+    { name: 'Startseite', href: '/' },
+    { name: 'Ratgeber', href: '/ratgeber' },
+    { name: 'Kosten', href: '/ratgeber/kosten' },
+  ]);
 
   return (
     <div className="container" style={{ padding: '2rem 1.5rem 4rem', maxWidth: '800px' }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }} />
+      <JsonLd data={[article, breadcrumb]} />
       <nav className="breadcrumbs" aria-label="Breadcrumb">
         <Link href="/">Startseite</Link><span className="separator">/</span>
         <Link href="/ratgeber">Ratgeber</Link><span className="separator">/</span>
@@ -24,7 +35,8 @@ export default function KostenPage() {
       </nav>
 
       <article>
-        <h1 style={{ marginBottom: '1.5rem' }}>Was kostet eine Bestattung in Österreich?</h1>
+        <h1 style={{ marginBottom: '0.5rem' }}>Was kostet eine Bestattung in Österreich?</h1>
+        <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginBottom: '1.5rem' }}>Zuletzt aktualisiert: {formatGuideDate(lastUpdated)}</p>
         <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.05rem', marginBottom: '2rem', lineHeight: 1.8 }}>
           Die Kosten einer Bestattung in Österreich variieren je nach Bestattungsart, Region und individuellen Wünschen erheblich. Im Durchschnitt liegen die Gesamtkosten zwischen 3.000 und 10.000 Euro. Hier finden Sie eine detaillierte Kostenübersicht.
         </p>

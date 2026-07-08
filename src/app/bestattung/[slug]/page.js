@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { bestatter } from '@/data/bestatter';
 import { bundeslaender } from '@/data/bundeslaender';
-import { breadcrumbSchema, faqSchema } from '@/lib/seo';
+import { breadcrumbSchema, faqSchema, localBusinessSchema } from '@/lib/seo';
+import { getValidBestatter, getBestatterBySlug, generateAboutParagraph, inferWebsite } from '@/lib/records';
+import JsonLd from '@/components/JsonLd';
 import styles from './page.module.css';
 
 export async function generateStaticParams() {
-  return bestatter.map(b => ({ slug: b.slug }));
+  return getValidBestatter().map(b => ({ slug: b.slug }));
 }
 
 function formatAddress(location) {
@@ -23,12 +24,12 @@ function getMapsUrl(address) {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const b = bestatter.find(x => x.slug === slug);
+  const b = getBestatterBySlug(slug);
   if (!b) return {};
   const bl = bundeslaender.find(x => x.slug === b.bundesland);
   return {
-    title: `${b.name} – ${b.city}, ${bl?.name || ''} | Adresse, Parten & Leistungen`,
-    description: `${b.name} in ${b.city}, ${bl?.name || ''}. ☎ Telefonnummer, Adresse, aktuelle Sterbeanzeigen, Leistungen & Öffnungszeiten. Ihr Bestatter in ${b.city}.`,
+    title: `${b.name} – ${b.city}, ${bl?.name || ''} | Adresse, Kontakt & Leistungen`,
+    description: `${b.name} in ${b.city}, ${bl?.name || ''}. ☎ Telefonnummer, Adresse, Leistungen & Öffnungszeiten. Ihr Bestatter in ${b.city}.`,
     alternates: { canonical: `https://bestattungs.at/bestattung/${slug}` },
     openGraph: { title: b.name, description: b.description, url: `https://bestattungs.at/bestattung/${slug}` },
   };
@@ -36,40 +37,36 @@ export async function generateMetadata({ params }) {
 
 export default async function BestatterPage({ params }) {
   const { slug } = await params;
-  const b = bestatter.find(x => x.slug === slug);
+  const b = getBestatterBySlug(slug);
   if (!b) notFound();
   const bl = bundeslaender.find(x => x.slug === b.bundesland);
-  const nearby = bestatter.filter(x => x.bundesland === b.bundesland && x.id !== b.id).slice(0, 4);
+  const nearby = getValidBestatter().filter(x => x.bundesland === b.bundesland && x.id !== b.id).slice(0, 4);
   const mainAddress = formatAddress(b);
   const mainMapsUrl = getMapsUrl(mainAddress);
 
-  const schema = {
-    '@context': 'https://schema.org', '@type': 'FuneralHome',
-    name: b.name, description: b.description,
-    telephone: b.phone,
-    ...(b.email ? { email: b.email } : {}),
-    hasMap: mainMapsUrl,
-    address: { '@type': 'PostalAddress', streetAddress: b.street, postalCode: b.plz, addressLocality: b.city, addressRegion: bl?.name, addressCountry: 'AT' },
-    areaServed: b.locations ? b.locations.map(l => l.city) : [b.city],
-    url: `https://bestattungs.at/bestattung/${slug}`,
-  };
+  const schema = localBusinessSchema(b, { bundeslandName: bl?.name, path: `/bestattung/${slug}`, mapsUrl: mainMapsUrl });
   const faqItems = [
     { question: `Wie erreiche ich ${b.name}?`, answer: `Sie erreichen ${b.name} telefonisch unter ${b.phone}. Die Adresse lautet: ${b.street}, ${b.plz} ${b.city}.` },
     { question: `Welche Bestattungsarten bietet ${b.name} an?`, answer: `${b.name} bietet folgende Bestattungsarten an: ${b.services.join(', ')}.` },
-    { question: `Wo finde ich aktuelle Parten und Sterbeanzeigen von ${b.name}?`, answer: `Aktuelle Parten und Sterbeanzeigen finden Sie auf dieser Seite oder kontaktieren Sie ${b.name} direkt.` },
   ];
+  const partenWebsite = b.website;
+  const partenWebsiteHref = partenWebsite && !partenWebsite.startsWith('http') ? `https://${partenWebsite}` : partenWebsite;
+  const sidebarWebsite = inferWebsite(b);
+  const sidebarWebsiteHref = sidebarWebsite && !sidebarWebsite.startsWith('http') ? `https://${sidebarWebsite}` : sidebarWebsite;
   const breadcrumb = breadcrumbSchema([
     { name: 'Startseite', href: '/' },
+    { name: 'Bundesländer', href: '/bundesland' },
     { name: bl?.name || b.bundesland, href: `/bundesland/${b.bundesland}` },
     { name: b.name, href: `/bestattung/${slug}` },
   ]);
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([schema, breadcrumb, faqSchema(faqItems)]) }} />
+      <JsonLd data={[schema, breadcrumb, faqSchema(faqItems)]} />
       <div className="container">
         <nav className="breadcrumbs" aria-label="Breadcrumb">
           <Link href="/">Startseite</Link><span className="separator">/</span>
+          <Link href="/bundesland">Bundesländer</Link><span className="separator">/</span>
           <Link href={`/bundesland/${b.bundesland}`}>{bl?.name}</Link><span className="separator">/</span>
           <span>{b.name}</span>
         </nav>
@@ -87,7 +84,7 @@ export default async function BestatterPage({ params }) {
             <section className={styles.section} id="ueber-uns">
               <h2>Über {b.name}</h2>
               <p>{b.description}</p>
-              <p>{b.name} ist ein erfahrenes Bestattungsunternehmen in {b.city}, {bl?.name}. Mit einfühlsamer Betreuung und professionellem Service begleiten wir Trauerfamilien in einer der schwierigsten Zeiten ihres Lebens. Unser Team steht Ihnen rund um die Uhr zur Verfügung und kümmert sich um alle notwendigen Formalitäten.</p>
+              <p>{generateAboutParagraph(b, bl?.name)}</p>
             </section>
 
             <section className={styles.section} id="leistungen">
@@ -135,21 +132,30 @@ export default async function BestatterPage({ params }) {
               </section>
             )}
 
-            <section className={styles.section} id="parten">
-              <h2>Aktuelle Sterbeanzeigen & Parten</h2>
-              <p className={styles.partenInfo}>Aktuelle Sterbeanzeigen und Parten von {b.name} werden hier veröffentlicht. Bitte kontaktieren Sie {b.name} direkt für aktuelle Traueranzeigen und Todesfälle.</p>
-              <div className={styles.partenCta}>
-                <span>☎ Für aktuelle Parten kontaktieren Sie uns unter:</span>
-                <a href={`tel:${b.phone}`} className={styles.phoneLink}>{b.phone}</a>
-              </div>
+            <section className={styles.section} id="karte">
+              <h2>Karte & Anfahrt</h2>
+              <iframe
+                title={`Standort von ${b.name}`}
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(mainAddress)}&output=embed`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                style={{ width: '100%', height: '300px', border: 0, borderRadius: 'var(--radius-lg)' }}
+              />
             </section>
+
+            {partenWebsite && (
+              <section className={styles.section} id="parten">
+                <p>
+                  Parten und Sterbeanzeigen finden Sie direkt auf der Website von {b.name}: <a href={partenWebsiteHref} target="_blank" rel="noopener noreferrer">{partenWebsite}</a>.
+                </p>
+              </section>
+            )}
 
             <section className={styles.section} id="faq">
               <h2>Häufig gestellte Fragen</h2>
               <div className={styles.faqList}>
                 <details className={styles.faq}><summary>Wie erreiche ich {b.name}?</summary><p>Sie erreichen {b.name} telefonisch unter {b.phone}. Die Adresse lautet: {b.street}, {b.plz} {b.city}.</p></details>
                 <details className={styles.faq}><summary>Welche Bestattungsarten bietet {b.name} an?</summary><p>{b.name} bietet folgende Bestattungsarten an: {b.services.join(', ')}.</p></details>
-                <details className={styles.faq}><summary>Wo finde ich aktuelle Parten und Sterbeanzeigen von {b.name}?</summary><p>Aktuelle Parten und Sterbeanzeigen finden Sie auf dieser Seite oder kontaktieren Sie {b.name} direkt.</p></details>
               </div>
             </section>
           </article>
@@ -162,6 +168,9 @@ export default async function BestatterPage({ params }) {
               {b.email && (
                 <div className={styles.contactItem}><span>@</span><a href={`mailto:${b.email}`}>{b.email}</a></div>
               )}
+              {sidebarWebsite && (
+                <div className={styles.contactItem}><span>🌐</span><a href={sidebarWebsiteHref} target="_blank" rel="noopener noreferrer">{sidebarWebsite}</a></div>
+              )}
               <a
                 href={mainMapsUrl}
                 className={`btn btn-outline ${styles.mapButton}`}
@@ -171,6 +180,9 @@ export default async function BestatterPage({ params }) {
                 Route planen
               </a>
               <a href={`tel:${b.phone}`} className="btn btn-primary" style={{width:'100%',justifyContent:'center',marginTop:'0.5rem'}}>Jetzt anrufen</a>
+              <Link href={`/bundesland/${b.bundesland}/${b.citySlug}`} style={{ display: 'block', textAlign: 'center', marginTop: '0.75rem', fontSize: '0.85rem' }}>
+                Alle Bestatter in {b.city} ansehen →
+              </Link>
             </div>
 
             {nearby.length > 0 && (

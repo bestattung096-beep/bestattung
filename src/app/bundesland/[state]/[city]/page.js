@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { bundeslaender } from '@/data/bundeslaender';
-import { bestatter } from '@/data/bestatter';
 import { cities } from '@/data/cities';
-import { breadcrumbSchema } from '@/lib/seo';
+import { breadcrumbSchema, localBusinessReference, faqSchema } from '@/lib/seo';
+import { getValidBestatterForCity, hasValidListingForCity } from '@/lib/records';
+import JsonLd from '@/components/JsonLd';
 import styles from './page.module.css';
 
 export async function generateStaticParams() {
@@ -15,12 +16,14 @@ export async function generateMetadata({ params }) {
   const c = cities.find(x => x.slug === city && x.bundesland === state);
   const bl = bundeslaender.find(x => x.slug === state);
   if (!c || !bl) return {};
-  const count = bestatter.filter(b => b.citySlug === city).length;
+  const count = getValidBestatterForCity(city).length;
+  const indexable = hasValidListingForCity(city);
   return {
     title: `Bestattung ${c.name} – ${count} Bestattungsunternehmen in ${c.name}, ${bl.name}`,
-    description: `${count} Bestattungsunternehmen in ${c.name}, ${bl.name} finden. Vergleichen Sie Bestatter in ${c.name} mit Kontaktdaten, Leistungen, Friedhöfen und aktuellen Sterbeanzeigen.`,
+    description: `${count} Bestattungsunternehmen in ${c.name}, ${bl.name} finden. Vergleichen Sie Bestatter in ${c.name} mit Kontaktdaten und Leistungen.`,
     alternates: { canonical: `https://bestattungs.at/bundesland/${state}/${city}` },
     openGraph: { title: `Bestattung ${c.name}`, description: c.description, url: `https://bestattungs.at/bundesland/${state}/${city}` },
+    robots: indexable ? { index: true, follow: true } : { index: false, follow: true },
   };
 }
 
@@ -30,7 +33,7 @@ export default async function CityPage({ params }) {
   const bl = bundeslaender.find(x => x.slug === state);
   if (!c || !bl) notFound();
 
-  const cityBestatter = bestatter.filter(b => b.citySlug === city || (b.locations && b.locations.some(l => l.city.toLowerCase().replace(/[^a-z0-9]/g, '-') === city)));
+  const cityBestatter = getValidBestatterForCity(city);
   const nearbyCities = cities.filter(x => x.bundesland === state && x.slug !== city).slice(0, 6);
 
   const schema = {
@@ -40,19 +43,25 @@ export default async function CityPage({ params }) {
     numberOfItems: cityBestatter.length,
     itemListElement: cityBestatter.map((b, i) => ({
       '@type': 'ListItem', position: i + 1,
-      item: { '@type': 'FuneralHome', name: b.name, address: { '@type': 'PostalAddress', addressLocality: c.name, addressRegion: bl.name, addressCountry: 'AT' } }
+      item: localBusinessReference(b),
     }))
   };
   const breadcrumb = breadcrumbSchema([
     { name: 'Startseite', href: '/' },
-    { name: 'Bundeslaender', href: '/bundesland' },
+    { name: 'Bundesländer', href: '/bundesland' },
     { name: bl.name, href: `/bundesland/${state}` },
     { name: c.name, href: `/bundesland/${state}/${city}` },
   ]);
+  const faqItems = [
+    { question: `Wie viele Bestattungsunternehmen gibt es in ${c.name}?`, answer: cityBestatter.length > 0 ? `Aktuell sind ${cityBestatter.length} Bestattungsunternehmen in ${c.name} gelistet.` : `Für ${c.name} sind derzeit keine geprüften Bestattungsunternehmen gelistet. In ${bl.name} finden Sie weitere Bestatter.` },
+    { question: `Was ist im Todesfall in ${c.name} zu tun?`, answer: `Zunächst muss ein Arzt den Tod feststellen. Anschließend kontaktieren Sie ein Bestattungsunternehmen in ${c.name}, das die weitere Organisation übernimmt. Der Todesfall wird beim ${c.standesamt} beurkundet.` },
+    { question: `Wo ist das Standesamt in ${c.name}?`, answer: `Zuständig ist das ${c.standesamt}.` },
+  ];
+  const faq = faqSchema(faqItems);
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([schema, breadcrumb]) }} />
+      <JsonLd data={[schema, breadcrumb, faq]} />
       <div className="container">
         <nav className="breadcrumbs" aria-label="Breadcrumb">
           <Link href="/">Startseite</Link><span className="separator">/</span>
@@ -62,7 +71,7 @@ export default async function CityPage({ params }) {
         </nav>
 
         <header className={styles.header}>
-          <h1>Bestattung in {c.name}</h1>
+          <h1><Link href={`/bundesland/${state}`}>Bestattung in {c.name}</Link></h1>
           <p className={styles.subtitle}>{bl.name} · PLZ {Array.isArray(c.plz) ? c.plz[0] : c.plz} · {c.population ? Number(c.population).toLocaleString('de-AT') + ' Einwohner' : ''}</p>
           <p className={styles.intro}>{c.description}</p>
         </header>
@@ -93,7 +102,7 @@ export default async function CityPage({ params }) {
             </div>
           ) : (
             <div className={styles.emptyState}>
-              <p>Derzeit sind keine Bestatter speziell in {c.name} gelistet. Bitte sehen Sie sich die <Link href={`/bundesland/${state}`}>Bestatter in {bl.name}</Link> an.</p>
+              <p>Für {c.name} liegen uns derzeit keine geprüften Bestattungsunternehmen vor. Bestatter im Bundesland <Link href={`/bundesland/${state}`}>{bl.name} finden Sie hier</Link>.</p>
             </div>
           )}
         </section>
@@ -143,6 +152,19 @@ export default async function CityPage({ params }) {
           </div>
         </section>
 
+        {/* FAQ */}
+        <section className={styles.section}>
+          <h2>Häufig gestellte Fragen zu {c.name}</h2>
+          <div className={styles.faqList}>
+            {faqItems.map(item => (
+              <details className={styles.faq} key={item.question}>
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
         {/* Nearby cities */}
         {nearbyCities.length > 0 && (
           <section className={styles.section}>
@@ -151,7 +173,7 @@ export default async function CityPage({ params }) {
               {nearbyCities.map(nc => (
                 <Link href={`/bundesland/${state}/${nc.slug}`} key={nc.slug} className={styles.nearbyCard}>
                   <h3>{nc.name}</h3>
-                  <span>{bestatter.filter(b => b.citySlug === nc.slug).length} Bestatter</span>
+                  <span>{getValidBestatterForCity(nc.slug).length} Bestatter</span>
                 </Link>
               ))}
             </div>

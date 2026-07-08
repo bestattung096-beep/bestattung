@@ -530,7 +530,8 @@ export const bestatter = [
     ],
     "description": "Bestattung Graz GmbH – Bestattungsunternehmen der Stadt Graz. 24/7 erreichbar.",
     "email": "bestattung@grazerbestattung.at",
-    "website": "www.grazerbestattung.at"
+    "website": "www.grazerbestattung.at",
+    "type": "staedtisch"
   },
   {
     "id": "bestattung-spittal",
@@ -570,7 +571,8 @@ export const bestatter = [
     ],
     "description": "Bestattung der Stadt Wels GmbH – Städtisches Bestattungsunternehmen in Wels, Oberösterreich. 24/7 erreichbar.",
     "email": "office@bestattung-wels.at",
-    "website": "bestattung-wels.at"
+    "website": "bestattung-wels.at",
+    "type": "staedtisch"
   },
   {
     "id": "bestattung-wien",
@@ -591,7 +593,8 @@ export const bestatter = [
     ],
     "description": "BESTATTUNG WIEN GmbH – Wiens größtes Bestattungsunternehmen mit zahlreichen Kundenservicestellen im gesamten Stadtgebiet. 24 Stunden erreichbar.",
     "email": "office@bestattungwien.at",
-    "website": "www.bestattungwien.at"
+    "website": "www.bestattungwien.at",
+    "type": "staedtisch"
   },
   {
     "id": "beyer",
@@ -2147,13 +2150,14 @@ export const bestatter = [
   {
     "id": "grossschaedl",
     "slug": "grossschaedl",
-    "name": "Bestattung Grossschaedl",
+    "name": "Bestattung Großschädl GmbH",
     "city": "Eggersdorf bei Graz",
     "citySlug": "eggersdorf-bei-graz",
     "bundesland": "steiermark",
     "plz": "8063",
-    "street": "Eggersdorf bei Graz und Graz Umgebung",
+    "street": "Stuhlsdorfer Straße 18",
     "phone": "+43 3117 5117",
+    "email": "bestattung@grossschaedl.at",
     "services": [
       "Erdbestattung",
       "Feuerbestattung",
@@ -2182,26 +2186,7 @@ export const bestatter = [
         "phone": "+43 3385 73090"
       }
     ],
-    "description": "Bestattung Grossschaedl in Eggersdorf bei Graz - Bestattungsunternehmen."
-  },
-  {
-    "id": "grossschaedl-missing",
-    "slug": "grossschaedl-gmbh",
-    "name": "Bestattung Großschädl GmbH",
-    "city": "Eggersdorf bei Graz",
-    "citySlug": "eggersdorf",
-    "bundesland": "steiermark",
-    "plz": "8063",
-    "street": "Stuhlsdorfer Straße 18",
-    "phone": "+43 3117 5117",
-    "services": [
-      "Erdbestattung",
-      "Feuerbestattung",
-      "Überführungen",
-      "Trauerfeier"
-    ],
-    "description": "Bestattung Großschädl GmbH in Eggersdorf bei Graz – Ihr zuverlässiger Partner für Bestattungen, Trauerfeiern und Überführungen.",
-    "email": "bestattung@grossschaedl.at"
+    "description": "Bestattung Großschädl GmbH in Eggersdorf bei Graz – Ihr zuverlässiger Partner für Bestattungen, Trauerfeiern und Überführungen."
   },
   {
     "id": "gruber",
@@ -2532,7 +2517,7 @@ export const bestatter = [
     "bundesland": "niederoesterreich",
     "plz": "2410",
     "street": "Wienerstraße 13",
-    "phone": "+43 1 244335 22410",
+    "phone": "+43 1 2443352",
     "services": [
       "Erdbestattung",
       "Feuerbestattung",
@@ -3006,25 +2991,6 @@ export const bestatter = [
     "description": "Bestattung Hochreiter KG in Hofamt Priel - Bestattungsunternehmen."
   },
   {
-    "id": "hoefler",
-    "slug": "hoefler",
-    "name": "Hoefler Bestattungen",
-    "city": "Heitersheim",
-    "citySlug": "heitersheim",
-    "bundesland": "deutschland",
-    "plz": "79423",
-    "street": "Johanniterstrasse 67",
-    "phone": "+49 7634 595466",
-    "email": "info@hoefler-bestattungen.de",
-    "services": [
-      "Erdbestattung",
-      "Feuerbestattung",
-      "Überführungen",
-      "Trauerfeier"
-    ],
-    "description": "Hoefler Bestattungen in Heitersheim - Bestattungsunternehmen."
-  },
-  {
     "id": "hoerhan",
     "slug": "hoerhan",
     "name": "Bestattung Hörhan (Alexander Hörhan)",
@@ -3463,11 +3429,11 @@ export const bestatter = [
     "id": "kessler",
     "slug": "kessler",
     "name": "Bestattung Kessler",
-    "city": "Kessler",
-    "citySlug": "kessler",
+    "city": "Türnitz",
+    "citySlug": "tuernitz",
     "bundesland": "niederoesterreich",
-    "plz": "3663",
-    "street": "",
+    "plz": "3184",
+    "street": "Auhofstraße 3",
     "phone": "+43 2769 8343",
     "email": "office@e-kessler.at",
     "services": [
@@ -3476,7 +3442,7 @@ export const bestatter = [
       "Überführungen",
       "Trauerfeier"
     ],
-    "description": "Bestattung Kessler in Kessler - Bestattungsunternehmen."
+    "description": "Bestattung Kessler in Türnitz - Bestattungsunternehmen."
   },
   {
     "id": "kihr",
@@ -5463,11 +5429,11 @@ export const bestatter = [
     "id": "pax",
     "slug": "pax",
     "name": "Bestattung Pax",
-    "city": "Linz",
-    "citySlug": "linz",
-    "bundesland": "oberoesterreich",
-    "plz": "4020",
-    "street": "Placeholder",
+    "city": "Wien",
+    "citySlug": "wien",
+    "bundesland": "wien",
+    "plz": "1030",
+    "street": "Landstraßer Hauptstraße 36",
     "phone": "+43 1 7690000",
     "email": "office@bestattung-pax.at",
     "services": [
@@ -5476,7 +5442,7 @@ export const bestatter = [
       "Überführungen",
       "Trauerfeier"
     ],
-    "description": "Bestattung Pax in Linz - Bestattungsunternehmen."
+    "description": "Bestattung Pax in Wien - Bestattungsunternehmen."
   },
   {
     "id": "pein",
@@ -5621,7 +5587,7 @@ export const bestatter = [
     "bundesland": "oberoesterreich",
     "plz": "4880",
     "street": "Johann Beer Strasse 2",
-    "phone": "+43 2682 00000",
+    "phone": "+43 7667 6410",
     "email": "office@bestattung-pillinger.at",
     "services": [
       "Erdbestattung",
@@ -5850,11 +5816,11 @@ export const bestatter = [
     "id": "priesching",
     "slug": "priesching",
     "name": "Bestattung Priesching",
-    "city": "Innsbruck",
-    "citySlug": "innsbruck",
-    "bundesland": "tirol",
-    "plz": "6020",
-    "street": "Placeholder",
+    "city": "Prinzersdorf",
+    "citySlug": "prinzersdorf",
+    "bundesland": "niederoesterreich",
+    "plz": "3385",
+    "street": "Linzerstraße 11",
     "phone": "+43 664 3522880",
     "email": "info@priesching.at",
     "services": [
@@ -5863,7 +5829,7 @@ export const bestatter = [
       "Überführungen",
       "Trauerfeier"
     ],
-    "description": "Bestattung Priesching in Innsbruck - Bestattungsunternehmen."
+    "description": "Bestattung Priesching in Prinzersdorf - Bestattungsunternehmen."
   },
   {
     "id": "puttinger",
@@ -6123,10 +6089,10 @@ export const bestatter = [
     "id": "reiterer",
     "slug": "reiterer",
     "name": "Bestattung Reiterer",
-    "city": "Innsbruck",
-    "citySlug": "innsbruck",
-    "bundesland": "tirol",
-    "plz": "6020",
+    "city": "Pölfing-Brunn",
+    "citySlug": "poelfing-brunn",
+    "bundesland": "steiermark",
+    "plz": "8544",
     "street": "Placeholder",
     "phone": "+43 3465 2352",
     "email": "bestattung@reiterer-kg.at",
@@ -6136,7 +6102,7 @@ export const bestatter = [
       "Überführungen",
       "Trauerfeier"
     ],
-    "description": "Bestattung Reiterer in Innsbruck - Bestattungsunternehmen."
+    "description": "Bestattung Reiterer in Pölfing-Brunn - Bestattungsunternehmen."
   },
   {
     "id": "resch",
@@ -6452,25 +6418,6 @@ export const bestatter = [
     "email": "office@bestattung-schoenbichler.at"
   },
   {
-    "id": "schoenbiechler",
-    "slug": "schoenbiechler",
-    "name": "Bestattung Schoenbichler",
-    "city": "Hainfeld",
-    "citySlug": "hainfeld",
-    "bundesland": "niederoesterreich",
-    "plz": "3170",
-    "street": "Hauptstrasse 45",
-    "phone": "+43 2764 67138",
-    "email": "office@bestattung-schoenbichler.at",
-    "services": [
-      "Erdbestattung",
-      "Feuerbestattung",
-      "Überführungen",
-      "Trauerfeier"
-    ],
-    "description": "Bestattung Schoenbichler in Hainfeld - Bestattungsunternehmen."
-  },
-  {
     "id": "schoosleitner",
     "slug": "schoosleitner",
     "name": "Bestattung Schoosleitner",
@@ -6756,17 +6703,18 @@ export const bestatter = [
     "id": "stigler",
     "slug": "stigler",
     "name": "Bestattung Stigler",
-    "city": "St. Pölten",
-    "citySlug": "st-poelten",
-    "bundesland": "niederoesterreich",
-    "plz": "3100",
-    "street": "Placeholder",
-    "phone": "+43 2742 00000",
+    "city": "Steyr",
+    "citySlug": "steyr",
+    "bundesland": "oberoesterreich",
+    "plz": "4400",
+    "street": "Enge Gasse 9",
+    "phone": "+43 7252 52128",
+    "email": "bestattung@stigler.at",
     "services": [
       "Erdbestattung",
       "Feuerbestattung"
     ],
-    "description": "Bestattung Stigler – Bestattungsunternehmen in St. Pölten."
+    "description": "Bestattung Stigler – Bestattungsunternehmen in Steyr."
   },
   {
     "id": "stockinger",
@@ -7867,5 +7815,845 @@ export const bestatter = [
     ],
     "description": "ZSU Trade GmbH (DITIB Bestattungshilfe) in Wien – Ihr zuverlässiger Partner für Bestattungen, Trauerfeiern und Überführungen.",
     "email": "bestattung@etuekoglu.at"
+  },
+  {
+    "id": "staedtische-st-poelten",
+    "slug": "staedtische-st-poelten",
+    "name": "Städtische Bestattung St. Pölten GmbH",
+    "city": "St. Pölten",
+    "citySlug": "st-poelten",
+    "bundesland": "niederoesterreich",
+    "plz": "3100",
+    "street": "Goldeggerstraße 52",
+    "phone": "+43 2742 333-4500",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Städtische Bestattung St. Pölten GmbH in St. Pölten – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@st-poelten.gv.at",
+    "website": "www.bestattung-stpoelten.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtgemeinde-baden",
+    "slug": "stadtgemeinde-baden",
+    "name": "Städtische Bestattung Baden",
+    "city": "Baden",
+    "citySlug": "baden",
+    "bundesland": "niederoesterreich",
+    "plz": "2500",
+    "street": "Neustiftgasse 6",
+    "phone": "+43 2252 86800-500",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Städtische Bestattung Baden in Baden – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@baden.gv.at",
+    "website": "www.bestattung-baden.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtgemeinde-hollabrunn",
+    "slug": "stadtgemeinde-hollabrunn",
+    "name": "Stadtgemeinde Hollabrunn – Bestattung",
+    "city": "Hollabrunn",
+    "citySlug": "hollabrunn",
+    "bundesland": "niederoesterreich",
+    "plz": "2020",
+    "street": "Hauptplatz 1",
+    "phone": "+43 2952 2102 500",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtgemeinde Hollabrunn – Bestattung in Hollabrunn – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@hollabrunn.gv.at",
+    "website": "www.hollabrunn.gv.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtgemeinde-stockerau",
+    "slug": "stadtgemeinde-stockerau",
+    "name": "Stadtgemeinde Stockerau – Bestattung",
+    "city": "Stockerau",
+    "citySlug": "stockerau",
+    "bundesland": "niederoesterreich",
+    "plz": "2000",
+    "street": "Schießstattgasse 115",
+    "phone": "+43 2266 695 2400",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtgemeinde Stockerau – Bestattung in Stockerau – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@stockerau.gv.at",
+    "website": "www.bestattungstockerau.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtgemeinde-horn",
+    "slug": "stadtgemeinde-horn",
+    "name": "Stadtgemeinde Horn – Bestattung",
+    "city": "Horn",
+    "citySlug": "horn",
+    "bundesland": "niederoesterreich",
+    "plz": "3580",
+    "street": "Rathausplatz 4",
+    "phone": "+43 2982 2656 265",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtgemeinde Horn – Bestattung in Horn – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "kalab@horn.gv.at",
+    "website": "www.horn.gv.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtgemeinde-gmuend",
+    "slug": "stadtgemeinde-gmuend",
+    "name": "Stadtgemeinde Gmünd – Bestattung",
+    "city": "Gmünd",
+    "citySlug": "gmund",
+    "bundesland": "niederoesterreich",
+    "plz": "3950",
+    "street": "Schremser Straße 6",
+    "phone": "+43 2852 52506 120",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtgemeinde Gmünd – Bestattung in Gmünd – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@gmuend.at",
+    "website": "www.bestattung.gmuend.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtgemeinde-waidhofen",
+    "slug": "stadtgemeinde-waidhofen",
+    "name": "Stadtgemeinde Waidhofen an der Thaya – Bestattung",
+    "city": "Waidhofen an der Thaya",
+    "citySlug": "waidhofen-an-der-thaya",
+    "bundesland": "niederoesterreich",
+    "plz": "3830",
+    "street": "Hauptplatz 1",
+    "phone": "+43 2842 503-0",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtgemeinde Waidhofen an der Thaya – Bestattung in Waidhofen an der Thaya – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "stadtamt@waidhofen-thaya-stadt.at",
+    "website": "www.waidhofen-thaya.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtgemeinde-gross-siegharts",
+    "slug": "stadtgemeinde-gross-siegharts",
+    "name": "Bestattung Groß-Siegharts (Weiskircher GmbH)",
+    "city": "Groß-Siegharts",
+    "citySlug": "gross-siegharts",
+    "bundesland": "niederoesterreich",
+    "plz": "3812",
+    "street": "Schloßplatz 1a",
+    "phone": "+43 2912 224",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Bestattung Groß-Siegharts (Weiskircher GmbH) in Groß-Siegharts – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@wgo.at",
+    "website": "bestattung.weiskircher.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtgemeinde-langenlois",
+    "slug": "stadtgemeinde-langenlois",
+    "name": "Stadtgemeinde Langenlois – Bestattung",
+    "city": "Langenlois",
+    "citySlug": "langenlois",
+    "bundesland": "niederoesterreich",
+    "plz": "3550",
+    "street": "Rathausstraße 2",
+    "phone": "+43 676 6356077",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtgemeinde Langenlois – Bestattung in Langenlois – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@langenlois.gv.at",
+    "website": "www.langenlois.gv.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtgemeinde-eggenburg",
+    "slug": "stadtgemeinde-eggenburg",
+    "name": "Stadtgemeinde Eggenburg – Bestattung",
+    "city": "Eggenburg",
+    "citySlug": "eggenburg",
+    "bundesland": "niederoesterreich",
+    "plz": "3730",
+    "street": "Kremserstraße 3",
+    "phone": "+43 2984 3501",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtgemeinde Eggenburg – Bestattung in Eggenburg – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "stadtgemeinde@eggenburg.gv.at",
+    "website": "www.eggenburg.gv.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtgemeinde-mautern",
+    "slug": "stadtgemeinde-mautern",
+    "name": "Stadtgemeinde Mautern – Bestattung",
+    "city": "Mautern an der Donau",
+    "citySlug": "mautern-an-der-donau",
+    "bundesland": "niederoesterreich",
+    "plz": "3512",
+    "street": "Rathausplatz 1",
+    "phone": "+43 2732 83151-24",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtgemeinde Mautern – Bestattung in Mautern an der Donau – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "stadtgemeinde@mautern-donau.gv.at",
+    "website": "www.mautern-donau.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtgemeinde-moedling",
+    "slug": "stadtgemeinde-moedling",
+    "name": "Stadtgemeinde Mödling – Bestattung",
+    "city": "Mödling",
+    "citySlug": "modling",
+    "bundesland": "niederoesterreich",
+    "plz": "2340",
+    "street": "Badstraße 6",
+    "phone": "+43 2236 485 83",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtgemeinde Mödling – Bestattung in Mödling – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "office@bestattung-moedling.at",
+    "website": "www.bestattung-moedling.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtgemeinde-fischamend",
+    "slug": "stadtgemeinde-fischamend",
+    "name": "Stadtgemeinde Fischamend – Bestattung",
+    "city": "Fischamend",
+    "citySlug": "fischamend",
+    "bundesland": "niederoesterreich",
+    "plz": "2401",
+    "street": "Enzersdorfer Straße 13-15",
+    "phone": "+43 2232 76580",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtgemeinde Fischamend – Bestattung in Fischamend – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@fischamend.gv.at",
+    "website": "www.fischamend-bestattung.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "gemeinde-deutsch-wagram",
+    "slug": "gemeinde-deutsch-wagram",
+    "name": "Gemeinde Deutsch-Wagram – Bestattung",
+    "city": "Deutsch-Wagram",
+    "citySlug": "deutsch-wagram",
+    "bundesland": "niederoesterreich",
+    "plz": "2232",
+    "street": "Friedhofstraße 2",
+    "phone": "+43 2247 2274",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Gemeinde Deutsch-Wagram – Bestattung in Deutsch-Wagram – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@deutsch-wagram.gv.at",
+    "website": "www.deutsch-wagram.gv.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "marktgemeinde-hohenau",
+    "slug": "marktgemeinde-hohenau",
+    "name": "Marktgemeinde Hohenau an der March – Bestattung",
+    "city": "Hohenau an der March",
+    "citySlug": "hohenau-an-der-march",
+    "bundesland": "niederoesterreich",
+    "plz": "2273",
+    "street": "Rathausplatz 1",
+    "phone": "+43 2535 2307 17",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Marktgemeinde Hohenau an der March – Bestattung in Hohenau an der March – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@hohenau.at",
+    "website": "www.hohenau.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "marktgemeinde-staatz",
+    "slug": "marktgemeinde-staatz",
+    "name": "Marktgemeinde Staatz – Bestattung",
+    "city": "Staatz-Kautendorf",
+    "citySlug": "staatz-kautendorf",
+    "bundesland": "niederoesterreich",
+    "plz": "2134",
+    "street": "Neudorfer Straße 7",
+    "phone": "+43 664 158 26 24",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Marktgemeinde Staatz – Bestattung in Staatz-Kautendorf – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@staatz.gv.at",
+    "website": "www.bestattung-staatz.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadt-krems",
+    "slug": "stadt-krems",
+    "name": "Stadt Krems a.d. Donau – Bestattung",
+    "city": "Krems an der Donau",
+    "citySlug": "krems-an-der-donau",
+    "bundesland": "niederoesterreich",
+    "plz": "3500",
+    "street": "Wiener Straße 87",
+    "phone": "+43 2732 801-630",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadt Krems a.d. Donau – Bestattung in Krems an der Donau – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@krems.gv.at",
+    "website": "www.krems.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "wiener-neustaedter-stadtwerke",
+    "slug": "wiener-neustaedter-stadtwerke",
+    "name": "Wiener Neustädter Stadtwerke – Bestattung",
+    "city": "Wiener Neustadt",
+    "citySlug": "wiener-neustadt",
+    "bundesland": "niederoesterreich",
+    "plz": "2700",
+    "street": "Ferdinand-Porsche-Ring 2a",
+    "phone": "+43 2622 22 193",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Wiener Neustädter Stadtwerke – Bestattung in Wiener Neustadt – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@wnsks.at",
+    "website": "www.bestattungwienerneustadt.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "neunkirchner-wirtschaftsbetriebe",
+    "slug": "neunkirchner-wirtschaftsbetriebe",
+    "name": "Neunkirchner Wirtschaftsbetriebe GmbH – Bestattung",
+    "city": "Neunkirchen",
+    "citySlug": "neunkirchen",
+    "bundesland": "niederoesterreich",
+    "plz": "2620",
+    "street": "Peischingerstraße 39",
+    "phone": "+43 2635 62484",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Neunkirchner Wirtschaftsbetriebe GmbH – Bestattung in Neunkirchen – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "office@bestattung-nk.at",
+    "website": "www.bestattung-nk.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "linz-ag-bestattung",
+    "slug": "linz-ag-bestattung",
+    "name": "LINZ AG Bestattung (LINZ SERVICE GmbH)",
+    "city": "Linz",
+    "citySlug": "linz",
+    "bundesland": "oberoesterreich",
+    "plz": "4020",
+    "street": "Michaelsbergstraße 16",
+    "phone": "+43 732 3400-6700",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "LINZ AG Bestattung (LINZ SERVICE GmbH) in Linz – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "office.bestattung@linzag.at",
+    "website": "www.linzag.at/bestattung",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtbetriebe-steyr",
+    "slug": "stadtbetriebe-steyr",
+    "name": "Stadtbetriebe Steyr GmbH – Bestattung",
+    "city": "Steyr",
+    "citySlug": "steyr",
+    "bundesland": "oberoesterreich",
+    "plz": "4400",
+    "street": "Taborweg 10",
+    "phone": "+43 7252 899 250",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtbetriebe Steyr GmbH – Bestattung in Steyr – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@stadtbetriebe.at",
+    "website": "www.bestattungsteyr.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "marktgemeinde-sierning",
+    "slug": "marktgemeinde-sierning",
+    "name": "Marktgemeinde Sierning – Bestattung",
+    "city": "Sierning",
+    "citySlug": "sierning",
+    "bundesland": "oberoesterreich",
+    "plz": "4522",
+    "street": "Kirchenplatz 1",
+    "phone": "+43 7259 2255-242",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Marktgemeinde Sierning – Bestattung in Sierning – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "hannes.haghofer@sierning.at",
+    "website": "www.bestattung-sierning.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "staedtische-bestattung-salzburg",
+    "slug": "staedtische-bestattung-salzburg",
+    "name": "Städtische Bestattung Salzburg",
+    "city": "Salzburg",
+    "citySlug": "salzburg",
+    "bundesland": "salzburg",
+    "plz": "5020",
+    "street": "Gneiser Straße 14A",
+    "phone": "+43 662 8072-8182",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Städtische Bestattung Salzburg in Salzburg – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@stadt-salzburg.at",
+    "website": "www.stadt-salzburg.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtgemeinde-leoben",
+    "slug": "stadtgemeinde-leoben",
+    "name": "Stadtwerke Leoben e.U. – Bestattung",
+    "city": "Leoben",
+    "citySlug": "leoben",
+    "bundesland": "steiermark",
+    "plz": "8700",
+    "street": "Scheiterbodenstraße 1",
+    "phone": "+43 3842 82380",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtwerke Leoben e.U. – Bestattung in Leoben – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@stadtwerke-leoben.at",
+    "website": "www.stadtwerke-leoben.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtwerke-bruck-mur",
+    "slug": "stadtwerke-bruck-mur",
+    "name": "Stadtwerke Bruck an der Mur GmbH – Bestattung",
+    "city": "Bruck an der Mur",
+    "citySlug": "bruck-an-der-mur",
+    "bundesland": "steiermark",
+    "plz": "8600",
+    "street": "Stadtwerkestraße 5a",
+    "phone": "+43 3862 51581 600",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtwerke Bruck an der Mur GmbH – Bestattung in Bruck an der Mur – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@stadtwerke-bruck.at",
+    "website": "www.stadtwerke-bruck.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtwerke-judenburg",
+    "slug": "stadtwerke-judenburg",
+    "name": "Stadtwerke Judenburg AG – Bestattung",
+    "city": "Judenburg",
+    "citySlug": "judenburg",
+    "bundesland": "steiermark",
+    "plz": "8750",
+    "street": "Friedhofgasse 14",
+    "phone": "+43 3572 82618",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtwerke Judenburg AG – Bestattung in Judenburg – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@stadtwerke.co.at",
+    "website": "www.stadtwerke.co.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtwerke-kapfenberg",
+    "slug": "stadtwerke-kapfenberg",
+    "name": "Stadtwerke Kapfenberg GmbH – Bestattung",
+    "city": "Kapfenberg",
+    "citySlug": "kapfenberg",
+    "bundesland": "steiermark",
+    "plz": "8605",
+    "street": "Friedhofweg 10",
+    "phone": "+43 3862 23926",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtwerke Kapfenberg GmbH – Bestattung in Kapfenberg – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@stadtwerke-kapfenberg.at",
+    "website": "www.stadtwerke-kapfenberg.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtwerke-muerzzuschlag",
+    "slug": "stadtwerke-muerzzuschlag",
+    "name": "Stadtwerke Mürzzuschlag GmbH – Bestattung",
+    "city": "Mürzzuschlag",
+    "citySlug": "murzzuschlag",
+    "bundesland": "steiermark",
+    "plz": "8680",
+    "street": "Grazer Straße 75",
+    "phone": "+43 3852 2027",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtwerke Mürzzuschlag GmbH – Bestattung in Mürzzuschlag – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@stwmz.at",
+    "website": "www.muerzzuschlag.pietaet.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtwerke-trofaiach",
+    "slug": "stadtwerke-trofaiach",
+    "name": "Stadtwerke Trofaiach – Bestattung",
+    "city": "Trofaiach",
+    "citySlug": "trofaiach",
+    "bundesland": "steiermark",
+    "plz": "8793",
+    "street": "Luchinettigasse 9",
+    "phone": "+43 3847 2600 135",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtwerke Trofaiach – Bestattung in Trofaiach – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "office@stadtwerke-trofaiach.at",
+    "website": "www.stadtwerke-trofaiach.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtwerke-voitsberg",
+    "slug": "stadtwerke-voitsberg",
+    "name": "Stadtwerke Voitsberg GmbH – Bestattung",
+    "city": "Voitsberg",
+    "citySlug": "voitsberg",
+    "bundesland": "steiermark",
+    "plz": "8570",
+    "street": "Oberdorferstraße 12b",
+    "phone": "+43 3142 22422",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtwerke Voitsberg GmbH – Bestattung in Voitsberg – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "office@bestattung-voitsberg.at",
+    "website": "www.bestattung-voitsberg.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtgemeinde-koeflach",
+    "slug": "stadtgemeinde-koeflach",
+    "name": "Stadtgemeinde Köflach – Bestattung",
+    "city": "Köflach",
+    "citySlug": "koflach",
+    "bundesland": "steiermark",
+    "plz": "8580",
+    "street": "Piberstraße 7",
+    "phone": "+43 3144 3536",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtgemeinde Köflach – Bestattung in Köflach – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@stadtwerke-koeflach.at",
+    "website": "www.bestattung-koeflach.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "gemeinde-fohnsdorf",
+    "slug": "gemeinde-fohnsdorf",
+    "name": "Gemeinde Fohnsdorf – Bestattung",
+    "city": "Fohnsdorf",
+    "citySlug": "fohnsdorf",
+    "bundesland": "steiermark",
+    "plz": "8753",
+    "street": "Grazerstraße 17",
+    "phone": "+43 3573 2431-121",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Gemeinde Fohnsdorf – Bestattung in Fohnsdorf – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@fohnsdorf.gv.at",
+    "website": "www.bestattung-murtal.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtgemeinde-feldkirchen",
+    "slug": "stadtgemeinde-feldkirchen",
+    "name": "Bestattung Feldkirchen (BKG Kärnten)",
+    "city": "Feldkirchen in Kärnten",
+    "citySlug": "feldkirchen-in-karnten",
+    "bundesland": "kaernten",
+    "plz": "9560",
+    "street": "Schulhausgasse 4",
+    "phone": "+43 4276 2786",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Bestattung Feldkirchen (BKG Kärnten) in Feldkirchen in Kärnten – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "office@bestattung-kaernten.at",
+    "website": "www.bestattung-kaernten.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtgemeinde-voelkermarkt",
+    "slug": "stadtgemeinde-voelkermarkt",
+    "name": "Städtische Bestattung Völkermarkt",
+    "city": "Völkermarkt",
+    "citySlug": "volkermarkt",
+    "bundesland": "kaernten",
+    "plz": "9100",
+    "street": "Hauptplatz 1",
+    "phone": "+43 664 80257121",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Städtische Bestattung Völkermarkt in Völkermarkt – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@bestattung-voelkermarkt.at",
+    "website": "www.bestattung-voelkermarkt.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtgemeinde-bleiburg",
+    "slug": "stadtgemeinde-bleiburg",
+    "name": "Stadtgemeinde Bleiburg – Bestattung",
+    "city": "Bleiburg",
+    "citySlug": "bleiburg",
+    "bundesland": "kaernten",
+    "plz": "9150",
+    "street": "10. Oktober Platz 1",
+    "phone": "+43 664 321 08 15",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtgemeinde Bleiburg – Bestattung in Bleiburg – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bleiburg.direktion@ktn.gde.at",
+    "website": "www.bleiburg.gv.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "stadtgemeinde-hermagor",
+    "slug": "stadtgemeinde-hermagor",
+    "name": "Städtische Bestattung Hermagor",
+    "city": "Hermagor",
+    "citySlug": "hermagor",
+    "bundesland": "kaernten",
+    "plz": "9620",
+    "street": "Friedhofstraße 8",
+    "phone": "+43 4282 2313",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Städtische Bestattung Hermagor in Hermagor – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@hermagor.at",
+    "website": "www.hermagor.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "wolfsberger-stadtwerke",
+    "slug": "wolfsberger-stadtwerke",
+    "name": "Wolfsberger Stadtwerke GmbH – Bestattung",
+    "city": "Wolfsberg",
+    "citySlug": "wolfsberg",
+    "bundesland": "kaernten",
+    "plz": "9400",
+    "street": "Lindhofstraße 2",
+    "phone": "+43 664 2621255",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Wolfsberger Stadtwerke GmbH – Bestattung in Wolfsberg – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung@wolfsberg.at",
+    "website": "www.bestattung-wolfsberg.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "ferlacher-kommunal",
+    "slug": "ferlacher-kommunal",
+    "name": "Stadtgemeinde Ferlach – Bestattung (BKG)",
+    "city": "Ferlach",
+    "citySlug": "ferlach",
+    "bundesland": "kaernten",
+    "plz": "9170",
+    "street": "Kirchgasse 5",
+    "phone": "+43 50 199 9170",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Stadtgemeinde Ferlach – Bestattung (BKG) in Ferlach – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "office@bestattung-kaernten.at",
+    "website": "www.bestattung-kaernten.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "marktgemeinde-arnoldstein",
+    "slug": "marktgemeinde-arnoldstein",
+    "name": "Marktgemeinde Arnoldstein – Bestattung",
+    "city": "Arnoldstein",
+    "citySlug": "arnoldstein",
+    "bundesland": "kaernten",
+    "plz": "9601",
+    "street": "Gemeindeplatz 4",
+    "phone": "+43 676 680 52 81",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Marktgemeinde Arnoldstein – Bestattung in Arnoldstein – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "arnoldstein@ktn.gde.at",
+    "website": "www.arnoldstein.gv.at",
+    "type": "staedtisch"
+  },
+  {
+    "id": "gemeinde-grafenstein",
+    "slug": "gemeinde-grafenstein",
+    "name": "Städtische Bestattung Grafenstein",
+    "city": "Grafenstein",
+    "citySlug": "grafenstein",
+    "bundesland": "kaernten",
+    "plz": "9131",
+    "street": "ÖR-Valentin-Deutschmann-Platz 1",
+    "phone": "+43 664 1553280",
+    "services": [
+      "Erdbestattung",
+      "Feuerbestattung",
+      "Überführungen",
+      "Trauerfeier"
+    ],
+    "description": "Städtische Bestattung Grafenstein in Grafenstein – kommunale Bestattung im Auftrag der Stadt bzw. Gemeinde. Würdevolle Begleitung und Organisation im Trauerfall.",
+    "email": "bestattung.grafenstein@ktn.gde.at",
+    "website": "www.bestattung-grafenstein.at",
+    "type": "staedtisch"
   }
 ];

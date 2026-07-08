@@ -1,9 +1,12 @@
 import Link from 'next/link';
+import { breadcrumbSchema } from '@/lib/seo';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'Ratgeber – Hilfe im Trauerfall in Österreich',
   description: 'Umfassende Ratgeber zu Bestattungsarten, Kosten, Vorsorge und was zu tun ist im Todesfall in Österreich.',
   alternates: { canonical: 'https://bestattungs.at/ratgeber' },
+  openGraph: { title: 'Ratgeber – Hilfe im Trauerfall in Österreich', description: 'Umfassende Ratgeber zu Bestattungsarten, Kosten, Vorsorge und was zu tun ist im Todesfall in Österreich.', url: 'https://bestattungs.at/ratgeber' },
 };
 
 const articles = [
@@ -12,12 +15,18 @@ const articles = [
   { slug: 'kosten', title: 'Bestattungskosten', icon: '💰', desc: 'Was kostet eine Bestattung? Durchschnittliche Kosten und Förderungen.' },
   { slug: 'vorsorge', title: 'Bestattungsvorsorge', icon: '🛡️', desc: 'Vorsorge treffen und Angehörige entlasten.' },
   { slug: 'bestattung-sarg', title: 'Sargbestattung', icon: '⚰️', desc: 'Alles über die traditionelle Sargbestattung in Österreich.' },
-  { slug: 'staedtische-bestattung', title: 'Städtische Bestattung vs. Private Bestatter', icon: '🏛️', desc: 'Unterschiede, freie Bestatterwahl und Kosten im Vergleich.' },
+  { slug: 'staedtische-bestattung', title: 'Städtisch vs. privat im Vergleich', icon: '🏛️', desc: 'Unterschiede, freie Bestatterwahl und Kosten im Vergleich.' },
 ];
 
 export default function RatgeberPage() {
+  const breadcrumb = breadcrumbSchema([
+    { name: 'Startseite', href: '/' },
+    { name: 'Ratgeber', href: '/ratgeber' },
+  ]);
+
   return (
     <div className="container" style={{ padding: '2rem 1.5rem 4rem' }}>
+      <JsonLd data={breadcrumb} />
       <nav className="breadcrumbs" aria-label="Breadcrumb">
         <Link href="/">Startseite</Link><span className="separator">/</span><span>Ratgeber</span>
       </nav>

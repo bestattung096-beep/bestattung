@@ -1,22 +1,33 @@
 import Link from 'next/link';
-import { articleSchema } from '@/lib/seo';
+import { articleSchema, breadcrumbSchema } from '@/lib/seo';
+import { guides, formatGuideDate } from '@/data/guides';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'Sargbestattung in Österreich – Ablauf, Kosten & Traditionen',
   description: 'Alles über die Sargbestattung in Österreich: Ablauf, Kosten, Sargarten, Traditionen und was Sie bei einer Bestattung im Sarg beachten sollten.',
   alternates: { canonical: 'https://bestattungs.at/ratgeber/bestattung-sarg' },
+  openGraph: { title: 'Sargbestattung in Österreich – Ablauf, Kosten & Traditionen', description: 'Alles über die Sargbestattung in Österreich: Ablauf, Kosten, Sargarten, Traditionen und was Sie bei einer Bestattung im Sarg beachten sollten.', url: 'https://bestattungs.at/ratgeber/bestattung-sarg' },
 };
 
 export default function BestattungSargPage() {
+  const lastUpdated = guides['bestattung-sarg'].lastUpdated;
   const article = articleSchema({
     title: 'Sargbestattung in Oesterreich',
     description: metadata.description,
     path: '/ratgeber/bestattung-sarg',
+    dateModified: lastUpdated,
   });
+
+  const breadcrumb = breadcrumbSchema([
+    { name: 'Startseite', href: '/' },
+    { name: 'Ratgeber', href: '/ratgeber' },
+    { name: 'Sargbestattung', href: '/ratgeber/bestattung-sarg' },
+  ]);
 
   return (
     <div className="container" style={{ padding: '2rem 1.5rem 4rem', maxWidth: '800px' }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }} />
+      <JsonLd data={[article, breadcrumb]} />
       <nav className="breadcrumbs" aria-label="Breadcrumb">
         <Link href="/">Startseite</Link><span className="separator">/</span>
         <Link href="/ratgeber">Ratgeber</Link><span className="separator">/</span>
@@ -24,7 +35,8 @@ export default function BestattungSargPage() {
       </nav>
 
       <article>
-        <h1 style={{ marginBottom: '1.5rem' }}>Sargbestattung in Österreich</h1>
+        <h1 style={{ marginBottom: '0.5rem' }}>Sargbestattung in Österreich</h1>
+        <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginBottom: '1.5rem' }}>Zuletzt aktualisiert: {formatGuideDate(lastUpdated)}</p>
         <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.05rem', marginBottom: '2rem', lineHeight: 1.8 }}>
           Die Sargbestattung (Erdbestattung) ist die traditionellste Form der Bestattung in Österreich. Der Verstorbene wird in einem Sarg auf einem Friedhof beigesetzt. Dieser Ratgeber informiert Sie über Ablauf, Kosten und Sargarten.
         </p>

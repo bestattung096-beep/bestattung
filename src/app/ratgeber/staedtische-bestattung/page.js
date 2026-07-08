@@ -1,10 +1,13 @@
 import Link from 'next/link';
-import { articleSchema, faqSchema } from '@/lib/seo';
+import { articleSchema, faqSchema, breadcrumbSchema } from '@/lib/seo';
+import { guides, formatGuideDate } from '@/data/guides';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
-  title: 'Städtische Bestattung vs. Private Bestatter: Freie Bestatterwahl',
+  title: 'Städtische oder private Bestattung? Unterschiede & freie Bestatterwahl',
   description: 'Unterschiede zwischen städtischen (kommunalen) und privaten Bestattungsunternehmen in Österreich. Gebühren, Leistungen & freie Bestatterwahl im Vergleich.',
   alternates: { canonical: 'https://bestattungs.at/ratgeber/staedtische-bestattung' },
+  openGraph: { title: 'Städtische oder private Bestattung? Unterschiede & freie Bestatterwahl', description: 'Unterschiede zwischen städtischen (kommunalen) und privaten Bestattungsunternehmen in Österreich. Gebühren, Leistungen & freie Bestatterwahl im Vergleich.', url: 'https://bestattungs.at/ratgeber/staedtische-bestattung' },
 };
 
 const faqs = [
@@ -23,18 +26,24 @@ const faqs = [
 ];
 
 export default function StaedtischeBestattungRatgeberPage() {
+  const lastUpdated = guides['staedtische-bestattung'].lastUpdated;
   const article = articleSchema({
-    title: 'Städtische Bestattung vs. Private Bestatter: Freie Bestatterwahl in Österreich',
+    title: 'Städtische oder private Bestattung? Unterschiede & freie Bestatterwahl in Österreich',
     description: metadata.description,
     path: '/ratgeber/staedtische-bestattung',
+    dateModified: lastUpdated,
   });
 
   const faq = faqSchema(faqs);
+  const breadcrumb = breadcrumbSchema([
+    { name: 'Startseite', href: '/' },
+    { name: 'Ratgeber', href: '/ratgeber' },
+    { name: 'Städtische vs. Private Bestattung', href: '/ratgeber/staedtische-bestattung' },
+  ]);
 
   return (
     <div className="container" style={{ padding: '2rem 1.5rem 4rem', maxWidth: '800px' }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />
+      <JsonLd data={[article, faq, breadcrumb]} />
 
       <nav className="breadcrumbs" aria-label="Breadcrumb">
         <Link href="/">Startseite</Link><span className="separator">/</span>
@@ -45,7 +54,8 @@ export default function StaedtischeBestattungRatgeberPage() {
       <article style={{ lineHeight: 1.8 }}>
         <header style={{ marginBottom: '2.5rem' }}>
           <span className="badge badge-accent" style={{ marginBottom: '0.5rem' }}>Ratgeber: Entscheidungshilfe</span>
-          <h1 style={{ marginBottom: '1rem', fontSize: '2.4rem' }}>Städtische Bestattung vs. Private Bestatter</h1>
+          <h1 style={{ marginBottom: '0.5rem', fontSize: '2.4rem' }}>Städtische Bestattung vs. Private Bestatter</h1>
+          <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginBottom: '1rem' }}>Zuletzt aktualisiert: {formatGuideDate(lastUpdated)}</p>
           <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.1rem' }}>
             Was ist der Unterschied zwischen einer städtischen (kommunalen) Bestattung und einem privaten Bestattungsunternehmen in Österreich? 
             Hier erfahren Sie alles über Ihre Rechte, Pflichten und die freie Bestatterwahl.
@@ -160,7 +170,7 @@ export default function StaedtischeBestattungRatgeberPage() {
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/staedtische-bestattung" className="btn btn-primary">
-              Städtische Bestatter anzeigen →
+              Städtische Bestatter im Überblick →
             </Link>
             <Link href="/suche" className="btn btn-outline">
               Preise vergleichen →

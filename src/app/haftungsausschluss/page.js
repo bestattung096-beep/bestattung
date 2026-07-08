@@ -3,10 +3,10 @@ import styles from '../legal.module.css';
 export const metadata = {
   title: 'Haftungsausschluss',
   description: 'Haftungsausschluss von Bestattungs.',
-  alternates: { canonical: 'https://bestattungs.at/disclaimer' },
+  alternates: { canonical: 'https://bestattungs.at/haftungsausschluss' },
 };
 
-export default function DisclaimerPage() {
+export default function HaftungsausschlussPage() {
   return (
     <main className={styles.page}>
       <header className={styles.header}>

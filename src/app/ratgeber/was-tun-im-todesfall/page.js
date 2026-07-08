@@ -1,22 +1,33 @@
 import Link from 'next/link';
-import { articleSchema } from '@/lib/seo';
+import { articleSchema, breadcrumbSchema } from '@/lib/seo';
+import { guides, formatGuideDate } from '@/data/guides';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'Was tun im Todesfall? – Schritt-für-Schritt Anleitung',
   description: 'Was tun im Todesfall in Österreich? Unsere Schritt-für-Schritt Anleitung hilft Ihnen: Arzt rufen, Bestatter kontaktieren, Dokumente, Bestattung planen.',
   alternates: { canonical: 'https://bestattungs.at/ratgeber/was-tun-im-todesfall' },
+  openGraph: { title: 'Was tun im Todesfall? – Schritt-für-Schritt Anleitung', description: 'Was tun im Todesfall in Österreich? Unsere Schritt-für-Schritt Anleitung hilft Ihnen: Arzt rufen, Bestatter kontaktieren, Dokumente, Bestattung planen.', url: 'https://bestattungs.at/ratgeber/was-tun-im-todesfall' },
 };
 
 export default function WasTunPage() {
+  const lastUpdated = guides['was-tun-im-todesfall'].lastUpdated;
   const article = articleSchema({
     title: 'Was tun im Todesfall? Schritt-fuer-Schritt Anleitung',
     description: metadata.description,
     path: '/ratgeber/was-tun-im-todesfall',
+    dateModified: lastUpdated,
   });
+
+  const breadcrumb = breadcrumbSchema([
+    { name: 'Startseite', href: '/' },
+    { name: 'Ratgeber', href: '/ratgeber' },
+    { name: 'Was tun im Todesfall?', href: '/ratgeber/was-tun-im-todesfall' },
+  ]);
 
   return (
     <div className="container" style={{ padding: '2rem 1.5rem 4rem', maxWidth: '800px' }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }} />
+      <JsonLd data={[article, breadcrumb]} />
       <nav className="breadcrumbs" aria-label="Breadcrumb">
         <Link href="/">Startseite</Link><span className="separator">/</span>
         <Link href="/ratgeber">Ratgeber</Link><span className="separator">/</span>
@@ -24,7 +35,8 @@ export default function WasTunPage() {
       </nav>
 
       <article>
-        <h1 style={{ marginBottom: '1.5rem' }}>Was tun im Todesfall? – Schritt-für-Schritt Anleitung</h1>
+        <h1 style={{ marginBottom: '0.5rem' }}>Was tun im Todesfall? – Schritt-für-Schritt Anleitung</h1>
+        <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginBottom: '1.5rem' }}>Zuletzt aktualisiert: {formatGuideDate(lastUpdated)}</p>
         <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.05rem', marginBottom: '2rem', lineHeight: 1.8 }}>
           Der Verlust eines geliebten Menschen ist eine der schwierigsten Situationen im Leben. In dieser belastenden Zeit müssen dennoch wichtige Schritte unternommen werden. Dieser Ratgeber gibt Ihnen eine klare Übersicht über alles, was in Österreich im Todesfall zu tun ist.
         </p>

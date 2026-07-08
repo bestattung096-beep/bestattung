@@ -39,3 +39,20 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# credentials / secrets
+service-account*.json
+service-account*.json.json
+
+# indexing logs & script reports
+indexing-log.json
+scripts/reports/
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+Thumbs.db

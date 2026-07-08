@@ -1,10 +1,13 @@
 import Link from 'next/link';
-import { articleSchema } from '@/lib/seo';
+import { articleSchema, breadcrumbSchema } from '@/lib/seo';
+import { guides, formatGuideDate } from '@/data/guides';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'Bestattungsarten in Österreich – Überblick & Vergleich',
   description: 'Alle Bestattungsarten in Österreich: Erdbestattung, Feuerbestattung, Seebestattung, Naturbestattung und alternative Formen im Vergleich.',
   alternates: { canonical: 'https://bestattungs.at/ratgeber/bestattungsarten' },
+  openGraph: { title: 'Bestattungsarten in Österreich – Überblick & Vergleich', description: 'Alle Bestattungsarten in Österreich: Erdbestattung, Feuerbestattung, Seebestattung, Naturbestattung und alternative Formen im Vergleich.', url: 'https://bestattungs.at/ratgeber/bestattungsarten' },
 };
 
 const arten = [
@@ -17,15 +20,23 @@ const arten = [
 ];
 
 export default function BestattungsartenPage() {
+  const lastUpdated = guides['bestattungsarten'].lastUpdated;
   const article = articleSchema({
     title: 'Bestattungsarten in Oesterreich - Ueberblick und Vergleich',
     description: metadata.description,
     path: '/ratgeber/bestattungsarten',
+    dateModified: lastUpdated,
   });
+
+  const breadcrumb = breadcrumbSchema([
+    { name: 'Startseite', href: '/' },
+    { name: 'Ratgeber', href: '/ratgeber' },
+    { name: 'Bestattungsarten', href: '/ratgeber/bestattungsarten' },
+  ]);
 
   return (
     <div className="container" style={{ padding: '2rem 1.5rem 4rem', maxWidth: '800px' }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }} />
+      <JsonLd data={[article, breadcrumb]} />
       <nav className="breadcrumbs" aria-label="Breadcrumb">
         <Link href="/">Startseite</Link><span className="separator">/</span>
         <Link href="/ratgeber">Ratgeber</Link><span className="separator">/</span>
@@ -33,7 +44,8 @@ export default function BestattungsartenPage() {
       </nav>
 
       <article>
-        <h1 style={{ marginBottom: '1.5rem' }}>Bestattungsarten in Österreich</h1>
+        <h1 style={{ marginBottom: '0.5rem' }}>Bestattungsarten in Österreich</h1>
+        <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginBottom: '1.5rem' }}>Zuletzt aktualisiert: {formatGuideDate(lastUpdated)}</p>
         <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.05rem', marginBottom: '2.5rem', lineHeight: 1.8 }}>
           In Österreich stehen verschiedene Bestattungsarten zur Verfügung. Die Wahl der Bestattungsform hängt von persönlichen, religiösen und finanziellen Faktoren ab. Hier finden Sie einen umfassenden Überblick über alle gängigen Bestattungsarten.
         </p>

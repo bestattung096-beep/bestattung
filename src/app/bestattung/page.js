@@ -1,14 +1,18 @@
 import Link from 'next/link';
-import { bestatter } from '@/data/bestatter';
 import { bundeslaender } from '@/data/bundeslaender';
+import { getValidBestatter } from '@/lib/records';
+import { breadcrumbSchema } from '@/lib/seo';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'Alle Bestattungsunternehmen in Österreich',
   description: 'Komplettes Verzeichnis aller Bestattungsunternehmen in Österreich. Finden Sie Bestatter nach Name, Standort und Leistungen.',
   alternates: { canonical: 'https://bestattungs.at/bestattung' },
+  openGraph: { title: 'Alle Bestattungsunternehmen in Österreich', description: 'Komplettes Verzeichnis aller Bestattungsunternehmen in Österreich.', url: 'https://bestattungs.at/bestattung' },
 };
 
 export default function BestatterListPage() {
+  const bestatter = getValidBestatter();
   const grouped = {};
   bestatter.forEach(b => {
     const bl = bundeslaender.find(x => x.slug === b.bundesland);
@@ -17,8 +21,14 @@ export default function BestatterListPage() {
     grouped[key].push(b);
   });
 
+  const breadcrumb = breadcrumbSchema([
+    { name: 'Startseite', href: '/' },
+    { name: 'Alle Bestatter', href: '/bestattung' },
+  ]);
+
   return (
     <div className="container" style={{ padding: '2rem 1.5rem 4rem' }}>
+      <JsonLd data={breadcrumb} />
       <nav className="breadcrumbs" aria-label="Breadcrumb">
         <Link href="/">Startseite</Link><span className="separator">/</span><span>Alle Bestatter</span>
       </nav>

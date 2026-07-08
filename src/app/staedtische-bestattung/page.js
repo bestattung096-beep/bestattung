@@ -1,13 +1,16 @@
 import Link from 'next/link';
 import { municipalFuneralServices } from '@/data/municipal-funeral-services';
 import { bundeslaender } from '@/data/bundeslaender';
-import { breadcrumbSchema } from '@/lib/seo';
+import { breadcrumbSchema, localBusinessReference } from '@/lib/seo';
+import { getProfileForMunicipal } from '@/lib/records';
+import JsonLd from '@/components/JsonLd';
 import styles from './page.module.css';
 
 export const metadata = {
   title: 'Städtische Bestattung Österreich – Kommunale Bestatter im Überblick',
   description: 'Übersicht aller städtischen und kommunalen Bestattungsunternehmen in Österreich. Kontaktdaten, Adressen, Telefonnummern von Wien bis Kärnten.',
   alternates: { canonical: 'https://bestattungs.at/staedtische-bestattung' },
+  openGraph: { title: 'Städtische Bestattung Österreich – Kommunale Bestatter im Überblick', description: 'Übersicht aller städtischen und kommunalen Bestattungsunternehmen in Österreich. Kontaktdaten, Adressen, Telefonnummern von Wien bis Kärnten.', url: 'https://bestattungs.at/staedtische-bestattung' },
 };
 
 export default function StaedtischeBestattungPage() {
@@ -28,14 +31,34 @@ export default function StaedtischeBestattungPage() {
     { name: 'Städtische Bestattung', href: '/staedtische-bestattung' },
   ]);
 
+  // Resolve each municipal service to its published profile page.
+  const profileBySid = new Map(
+    municipalFuneralServices.map(s => [s.id, getProfileForMunicipal(s)])
+  );
+
+  // ItemList of the profile pages for the structured data.
+  const itemListElement = municipalFuneralServices
+    .map(s => profileBySid.get(s.id))
+    .filter(Boolean)
+    .map((profile, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: localBusinessReference(profile),
+    }));
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Städtische Bestattungen in Österreich',
+    description: 'Kommunale Bestattungsunternehmen in Österreich mit eigenem Profil.',
+    numberOfItems: itemListElement.length,
+    itemListElement,
+  };
+
   const totalCount = municipalFuneralServices.length;
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
-      />
+      <JsonLd data={[breadcrumb, itemListSchema]} />
       <div className="container" style={{ padding: '2rem 1.5rem 4rem' }}>
         <nav className="breadcrumbs" aria-label="Breadcrumb">
           <Link href="/">Startseite</Link>
@@ -82,7 +105,7 @@ export default function StaedtischeBestattungPage() {
           </div>
           <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
             <Link href="/ratgeber/staedtische-bestattung" style={{ fontWeight: 600 }}>
-              Detaillierten Ratgeber: Städtisch vs. Privat lesen →
+              Städtisch vs. privat im Vergleich →
             </Link>
           </div>
         </section>
@@ -94,13 +117,18 @@ export default function StaedtischeBestattungPage() {
               <span>{getStateEmoji(state.slug)}</span> {state.name}
             </h2>
             <div className={styles.bestatterGrid}>
-              {services.map(b => (
+              {services.map(b => {
+                const profile = profileBySid.get(b.id);
+                const profileHref = profile ? `/bestattung/${profile.slug}` : null;
+                return (
                 <div key={b.id} className={styles.bCard} id={`municipal-home-${b.id}`}>
                   <div>
                     <div className={styles.bHeader}>
                       <span className={styles.bIcon}>🏛️</span>
                       <div>
-                        <h3 className={styles.bName}>{b.name}</h3>
+                        <h3 className={styles.bName}>
+                          {profileHref ? <Link href={profileHref}>{b.name}</Link> : b.name}
+                        </h3>
                         <span className={styles.bLocation}>📍 {b.plz} {b.city}</span>
                       </div>
                     </div>
@@ -126,9 +154,15 @@ export default function StaedtischeBestattungPage() {
                         <span>🌐</span> {b.website}
                       </a>
                     )}
+                    {profileHref && (
+                      <Link href={profileHref} className={styles.profileLink} aria-label={`Profil von ${b.name} ansehen`}>
+                        Zum Profil →
+                      </Link>
+                    )}
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </section>
         ))}

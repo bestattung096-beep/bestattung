@@ -149,6 +149,18 @@
   color: var(--color-accent);
 }
 
+.profileLink {
+  margin-top: var(--space-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.profileLink:hover {
+  text-decoration: underline;
+}
+
 .ctaBox {
   margin-top: var(--space-3xl);
   padding: var(--space-2xl) var(--space-xl);

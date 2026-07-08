@@ -1,4 +1,4 @@
-import { socialLinks } from '@/data/socialLinks';
+import { socialLinks } from '../data/socialLinks.js';
 
 const BASE_URL = 'https://bestattungs.at';
 
@@ -52,6 +52,39 @@ export function breadcrumbSchema(items) {
       name: item.name,
       item: absoluteUrl(item.href),
     })),
+  };
+}
+
+export function localBusinessSchema(b, { bundeslandName, path, mapsUrl } = {}) {
+  const url = absoluteUrl(path);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    additionalType: 'http://www.productontology.org/id/Funeral_home',
+    name: b.name,
+    description: b.description,
+    telephone: b.phone,
+    ...(b.email ? { email: b.email } : {}),
+    ...(mapsUrl ? { hasMap: mapsUrl } : {}),
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: b.street,
+      postalCode: b.plz,
+      addressLocality: b.city,
+      ...(bundeslandName ? { addressRegion: bundeslandName } : {}),
+      addressCountry: 'AT',
+    },
+    ...(b.locations ? { areaServed: b.locations.map(l => l.city) } : {}),
+    url: b.website ? (b.website.startsWith('http') ? b.website : `https://${b.website}`) : url,
+  };
+}
+
+/** Lightweight reference for ItemList entries — name + profile URL only. */
+export function localBusinessReference(b) {
+  return {
+    '@type': 'LocalBusiness',
+    name: b.name,
+    url: absoluteUrl(`/bestattung/${b.slug}`),
   };
 }
 

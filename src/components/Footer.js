@@ -71,7 +71,7 @@ export default function Footer() {
               <li><Link href="/ratgeber/kosten">Kosten</Link></li>
               <li><Link href="/ratgeber/vorsorge">Vorsorge</Link></li>
               <li><Link href="/suche">Bestatter suchen</Link></li>
-              <li><Link href="/staedtische-bestattung">Städtische Bestattungen</Link></li>
+              <li><Link href="/staedtische-bestattung">Städtische Bestatter im Überblick</Link></li>
             </ul>
           </div>
           <div className={styles.col}>
@@ -79,8 +79,7 @@ export default function Footer() {
             <ul className={styles.list}>
               <li><Link href="/impressum">Impressum</Link></li>
               <li><Link href="/datenschutz">Datenschutz</Link></li>
-              <li><Link href="/privacy-policy">Datenschutzerklaerung</Link></li>
-              <li><Link href="/disclaimer">Haftungsausschluss</Link></li>
+              <li><Link href="/haftungsausschluss">Haftungsausschluss</Link></li>
               <li><Link href="/agb">AGB</Link></li>
             </ul>
           </div>

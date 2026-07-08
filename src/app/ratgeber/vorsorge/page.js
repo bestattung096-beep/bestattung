@@ -1,22 +1,33 @@
 import Link from 'next/link';
-import { articleSchema } from '@/lib/seo';
+import { articleSchema, breadcrumbSchema } from '@/lib/seo';
+import { guides, formatGuideDate } from '@/data/guides';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'Bestattungsvorsorge in Österreich – Vorsorgen und Angehörige entlasten',
   description: 'Bestattungsvorsorge in Österreich: Vorsorgevertrag, Kosten, Vorteile und was Sie beachten sollten. Entlasten Sie Ihre Angehörigen.',
   alternates: { canonical: 'https://bestattungs.at/ratgeber/vorsorge' },
+  openGraph: { title: 'Bestattungsvorsorge in Österreich – Vorsorgen und Angehörige entlasten', description: 'Bestattungsvorsorge in Österreich: Vorsorgevertrag, Kosten, Vorteile und was Sie beachten sollten.', url: 'https://bestattungs.at/ratgeber/vorsorge' },
 };
 
 export default function VorsorgePage() {
+  const lastUpdated = guides['vorsorge'].lastUpdated;
   const article = articleSchema({
     title: 'Bestattungsvorsorge in Oesterreich',
     description: metadata.description,
     path: '/ratgeber/vorsorge',
+    dateModified: lastUpdated,
   });
+
+  const breadcrumb = breadcrumbSchema([
+    { name: 'Startseite', href: '/' },
+    { name: 'Ratgeber', href: '/ratgeber' },
+    { name: 'Vorsorge', href: '/ratgeber/vorsorge' },
+  ]);
 
   return (
     <div className="container" style={{ padding: '2rem 1.5rem 4rem', maxWidth: '800px' }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }} />
+      <JsonLd data={[article, breadcrumb]} />
       <nav className="breadcrumbs" aria-label="Breadcrumb">
         <Link href="/">Startseite</Link><span className="separator">/</span>
         <Link href="/ratgeber">Ratgeber</Link><span className="separator">/</span>
@@ -24,7 +35,8 @@ export default function VorsorgePage() {
       </nav>
 
       <article>
-        <h1 style={{ marginBottom: '1.5rem' }}>Bestattungsvorsorge – Vorsorgen und Angehörige entlasten</h1>
+        <h1 style={{ marginBottom: '0.5rem' }}>Bestattungsvorsorge – Vorsorgen und Angehörige entlasten</h1>
+        <p style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginBottom: '1.5rem' }}>Zuletzt aktualisiert: {formatGuideDate(lastUpdated)}</p>
         <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.05rem', marginBottom: '2rem', lineHeight: 1.8 }}>
           Die Bestattungsvorsorge ermöglicht es Ihnen, Ihre eigene Bestattung zu Lebzeiten zu planen und finanziell abzusichern. So entlasten Sie Ihre Angehörigen und stellen sicher, dass Ihre Wünsche respektiert werden.
         </p>
