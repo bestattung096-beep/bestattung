@@ -59,7 +59,7 @@ export function localBusinessSchema(b, { bundeslandName, path, mapsUrl } = {}) {
   const url = absoluteUrl(path);
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': 'FuneralHome',
     additionalType: 'http://www.productontology.org/id/Funeral_home',
     name: b.name,
     description: b.description,

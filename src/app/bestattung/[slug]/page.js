@@ -28,10 +28,10 @@ export async function generateMetadata({ params }) {
   if (!b) return {};
   const bl = bundeslaender.find(x => x.slug === b.bundesland);
   return {
-    title: `${b.name} – ${b.city}, ${bl?.name || ''} | Adresse, Kontakt & Leistungen`,
+    title: `${b.name} – ${b.city} | Bestattung & Kontakt`,
     description: `${b.name} in ${b.city}, ${bl?.name || ''}. ☎ Telefonnummer, Adresse, Leistungen & Öffnungszeiten. Ihr Bestatter in ${b.city}.`,
     alternates: { canonical: `https://bestattungs.at/bestattung/${slug}` },
-    openGraph: { title: b.name, description: b.description, url: `https://bestattungs.at/bestattung/${slug}` },
+    openGraph: { type: 'website', siteName: 'bestattungs.at', title: `${b.name} – ${b.city}`, description: b.description, url: `https://bestattungs.at/bestattung/${slug}` },
   };
 }
 
