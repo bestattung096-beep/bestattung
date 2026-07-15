@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
     title: `Bestattung ${c.name} – ${count} Bestattungsunternehmen in ${c.name}, ${bl.name}`,
     description: `${count} Bestattungsunternehmen in ${c.name}, ${bl.name} finden. Vergleichen Sie Bestatter in ${c.name} mit Kontaktdaten und Leistungen.`,
     alternates: { canonical: `https://bestattungs.at/bundesland/${state}/${city}` },
-    openGraph: { title: `Bestattung ${c.name}`, description: c.description, url: `https://bestattungs.at/bundesland/${state}/${city}` },
+    openGraph: { title: `Bestattung ${c.name}`, description: c.description || `Bestattungsunternehmen in ${c.name}, ${bl.name}`, url: `https://bestattungs.at/bundesland/${state}/${city}` },
     robots: indexable ? { index: true, follow: true } : { index: false, follow: true },
   };
 }
@@ -39,7 +39,7 @@ export default async function CityPage({ params }) {
   const schema = {
     '@context': 'https://schema.org', '@type': 'ItemList',
     name: `Bestattungsunternehmen in ${c.name}`,
-    description: c.description,
+    description: c.description || `Bestattungsunternehmen in ${c.name}, ${bl.name}`,
     numberOfItems: cityBestatter.length,
     itemListElement: cityBestatter.map((b, i) => ({
       '@type': 'ListItem', position: i + 1,
@@ -52,10 +52,11 @@ export default async function CityPage({ params }) {
     { name: bl.name, href: `/bundesland/${state}` },
     { name: c.name, href: `/bundesland/${state}/${city}` },
   ]);
+  const standesamt = c.standesamt || `Standesamt ${c.name}`;
   const faqItems = [
     { question: `Wie viele Bestattungsunternehmen gibt es in ${c.name}?`, answer: cityBestatter.length > 0 ? `Aktuell sind ${cityBestatter.length} Bestattungsunternehmen in ${c.name} gelistet.` : `Für ${c.name} sind derzeit keine geprüften Bestattungsunternehmen gelistet. In ${bl.name} finden Sie weitere Bestatter.` },
-    { question: `Was ist im Todesfall in ${c.name} zu tun?`, answer: `Zunächst muss ein Arzt den Tod feststellen. Anschließend kontaktieren Sie ein Bestattungsunternehmen in ${c.name}, das die weitere Organisation übernimmt. Der Todesfall wird beim ${c.standesamt} beurkundet.` },
-    { question: `Wo ist das Standesamt in ${c.name}?`, answer: `Zuständig ist das ${c.standesamt}.` },
+    { question: `Was ist im Todesfall in ${c.name} zu tun?`, answer: `Zunächst muss ein Arzt den Tod feststellen. Anschließend kontaktieren Sie ein Bestattungsunternehmen in ${c.name}, das die weitere Organisation übernimmt. Der Todesfall wird beim ${standesamt} beurkundet.` },
+    { question: `Wo ist das Standesamt in ${c.name}?`, answer: `Zuständig ist das ${standesamt}.` },
   ];
   const faq = faqSchema(faqItems);
 
@@ -72,8 +73,8 @@ export default async function CityPage({ params }) {
 
         <header className={styles.header}>
           <h1><Link href={`/bundesland/${state}`}>Bestattung in {c.name}</Link></h1>
-          <p className={styles.subtitle}>{bl.name} · PLZ {Array.isArray(c.plz) ? c.plz[0] : c.plz} · {c.population ? Number(c.population).toLocaleString('de-AT') + ' Einwohner' : ''}</p>
-          <p className={styles.intro}>{c.description}</p>
+          <p className={styles.subtitle}>{bl.name} · PLZ {Array.isArray(c.plz) ? c.plz[0] : c.plz}{c.population ? ` · ${Number(c.population).toLocaleString('de-AT')} Einwohner` : ''}</p>
+          <p className={styles.intro}>{c.description || `Finden Sie Bestattungsunternehmen in ${c.name}, ${bl.name}.`}</p>
         </header>
 
         {/* Bestatter in this city */}
@@ -113,14 +114,18 @@ export default async function CityPage({ params }) {
           <div className={styles.infoGrid}>
             <div className={styles.infoCard}>
               <h3>⛪ Friedhöfe in {c.name}</h3>
-              <ul className={styles.infoList}>
-                {c.friedhoefe.map(f => <li key={f}>{f}</li>)}
-              </ul>
+              {c.friedhoefe && c.friedhoefe.length > 0 ? (
+                <ul className={styles.infoList}>
+                  {c.friedhoefe.map(f => <li key={f}>{f}</li>)}
+                </ul>
+              ) : (
+                <p>Informationen zu Friedhöfen in {c.name} finden Sie beim zuständigen Gemeindeamt.</p>
+              )}
             </div>
             <div className={styles.infoCard}>
               <h3>📋 Standesamt</h3>
               <p>Im Todesfall muss die Sterbeurkunde beim zuständigen Standesamt beantragt werden.</p>
-              <p className={styles.standesamt}>{c.standesamt}</p>
+              <p className={styles.standesamt}>{c.standesamt || `Standesamt ${c.name}`}</p>
             </div>
             <div className={styles.infoCard}>
               <h3>📞 Notfall-Kontakt</h3>
@@ -143,7 +148,7 @@ export default async function CityPage({ params }) {
             </div>
             <div className={styles.step}>
               <span className={styles.stepNum}>3</span>
-              <div><h3>Standesamt ({c.standesamt})</h3><p>Der Todesfall wird beim {c.standesamt} beurkundet.</p></div>
+              <div><h3>Standesamt ({standesamt})</h3><p>Der Todesfall wird beim {standesamt} beurkundet.</p></div>
             </div>
             <div className={styles.step}>
               <span className={styles.stepNum}>4</span>
