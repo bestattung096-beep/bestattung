@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { bundeslaender } from '@/data/bundeslaender';
 import { breadcrumbSchema, faqSchema, localBusinessSchema } from '@/lib/seo';
-import { getValidBestatter, getBestatterBySlug, generateAboutParagraph, inferWebsite } from '@/lib/records';
+import { getValidBestatter, getBestatterBySlug, generateAboutParagraph } from '@/lib/records';
 import JsonLd from '@/components/JsonLd';
 import styles from './page.module.css';
 
@@ -49,10 +49,6 @@ export default async function BestatterPage({ params }) {
     { question: `Wie erreiche ich ${b.name}?`, answer: `Sie erreichen ${b.name} telefonisch unter ${b.phone}. Die Adresse lautet: ${b.street}, ${b.plz} ${b.city}.` },
     { question: `Welche Bestattungsarten bietet ${b.name} an?`, answer: `${b.name} bietet folgende Bestattungsarten an: ${b.services.join(', ')}.` },
   ];
-  const partenWebsite = b.website;
-  const partenWebsiteHref = partenWebsite && !partenWebsite.startsWith('http') ? `https://${partenWebsite}` : partenWebsite;
-  const sidebarWebsite = inferWebsite(b);
-  const sidebarWebsiteHref = sidebarWebsite && !sidebarWebsite.startsWith('http') ? `https://${sidebarWebsite}` : sidebarWebsite;
   const breadcrumb = breadcrumbSchema([
     { name: 'Startseite', href: '/' },
     { name: 'Bundesländer', href: '/bundesland' },
@@ -143,13 +139,6 @@ export default async function BestatterPage({ params }) {
               />
             </section>
 
-            {partenWebsite && (
-              <section className={styles.section} id="parten">
-                <p>
-                  Parten und Sterbeanzeigen finden Sie direkt auf der Website von {b.name}: <a href={partenWebsiteHref} target="_blank" rel="noopener noreferrer">{partenWebsite}</a>.
-                </p>
-              </section>
-            )}
 
             <section className={styles.section} id="faq">
               <h2>Häufig gestellte Fragen</h2>
@@ -167,9 +156,6 @@ export default async function BestatterPage({ params }) {
               <div className={styles.contactItem}><span>☎</span><a href={`tel:${b.phone}`}>{b.phone}</a></div>
               {b.email && (
                 <div className={styles.contactItem}><span>@</span><a href={`mailto:${b.email}`}>{b.email}</a></div>
-              )}
-              {sidebarWebsite && (
-                <div className={styles.contactItem}><span>🌐</span><a href={sidebarWebsiteHref} target="_blank" rel="noopener noreferrer">{sidebarWebsite}</a></div>
               )}
               <a
                 href={mainMapsUrl}
