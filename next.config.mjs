@@ -30,6 +30,17 @@ const nextConfig = {
       },
     ];
   },
+
+  async headers() {
+    return [
+      {
+        // Prevent Googlebot from treating Next.js RSC payload requests as indexable pages
+        source: '/:path*',
+        has: [{ type: 'query', key: '_rsc' }],
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
